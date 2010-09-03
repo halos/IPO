@@ -233,20 +233,6 @@ public class Vista implements VistaInterface{
 
     }
 
-    //</editor-fold>
-
-    public void resultadosBusquedaCambiados() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public CamposNota getCamposNotaSeleccionada() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void setNotaDetalles(Nota n) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    
+    //</editor-fold>    
 
 }
