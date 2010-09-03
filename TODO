@@ -1,0 +1,11 @@
+Ancho de la columna del checkbox ajustado
+Implementado el listener para cambiar el chequeo del destinatario a eliminar
+Implementados los listeners para el cerrado de los diálogos
+Añadidos e implementados los métodos para añadir listener a los diálogos
+Añadidos todos los listeners a BotonesSuperioresPanel
+
+// Muerte y destruccion
+
+TODO: Arreglar la tabla de eliminar destinatarios para que se muestre el checkbox
+TODO: Poner en negrita / quitar en negrita
+TODO: Listeners
