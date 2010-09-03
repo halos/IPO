@@ -27,6 +27,11 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
     /*---- Atributos ----*/
 
     /**
+     * Lista de observadores del borrado de destinatarios
+     */
+    LinkedList<ActionListener> _llBorrado;
+
+    /**
      * Lista con los observadores para el cerrado del diálogo
      */
     LinkedList<ActionListener> _llClose;
@@ -123,6 +128,14 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
         _llClose.add(al);
     }
 
+    /**
+     * Método para añadir el listener para el cerrado del diálogo
+     * @param al Listener al que avisar al cerrar el diálogo
+     */
+    public void addBorradoListener(ActionListener al){
+        _llBorrado.add(al);
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -143,6 +156,11 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         _borrarSelecionadosButton.setText("Borrar seleccionados");
+        _borrarSelecionadosButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _borrarSelecionadosButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -182,6 +200,12 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
             al.actionPerformed(evt);
         }
     }//GEN-LAST:event__cancelarButtonActionPerformed
+
+    private void _borrarSelecionadosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__borrarSelecionadosButtonActionPerformed
+        for(ActionListener al: _llBorrado){
+            al.actionPerformed(evt);
+        }
+    }//GEN-LAST:event__borrarSelecionadosButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton _borrarSelecionadosButton;
