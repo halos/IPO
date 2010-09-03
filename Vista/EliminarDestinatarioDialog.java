@@ -10,6 +10,7 @@ package Vista;
 import Modelo.Destinastarios;
 import Vista.TableModels.EliminarDestinatariosTableModel;
 import java.util.List;
+import javax.swing.table.TableColumn;
 
 /**
  * Clase que se encarga de generar y gestionar el diálogo para la eliminación
@@ -35,6 +36,15 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
         _datosTabla = new EliminarDestinatariosTableModel();
 
         initComponents();
+
+        TableColumn tc = _destinatariosTable.getColumnModel().getColumn(0);
+
+        int width = 80;
+
+        tc.setPreferredWidth(width);
+        tc.setMinWidth(width);
+        tc.setMaxWidth(width);
+        
     }
 
     /**
