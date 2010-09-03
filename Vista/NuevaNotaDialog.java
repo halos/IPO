@@ -47,6 +47,14 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
 
     }
 
+    /**
+     * Método para añadir el listener para el cerrado del diálogo
+     * @param al Listener al que avisar al cerrar el diálogo
+     */
+    public void addCloseListener(ActionListener al){
+        _llClose.add(al);
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -152,6 +160,11 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
         getContentPane().add(_aceptarButton, gridBagConstraints);
 
         _cancelarButton.setText("Cancelar");
+        _cancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _cancelarButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -165,6 +178,12 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         
     }//GEN-LAST:event__aceptarButtonActionPerformed
+
+    private void _cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__cancelarButtonActionPerformed
+        for(ActionListener al: _llClose){
+            al.actionPerformed(evt);
+        }
+    }//GEN-LAST:event__cancelarButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton _aceptarButton;

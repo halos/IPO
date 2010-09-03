@@ -5,6 +5,8 @@ import Controlador.ControladorInterface;
 import Modelo.CamposNota;
 import Modelo.ModeloInterface;
 import Modelo.Nota;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 /**
@@ -141,6 +143,15 @@ public class Vista implements VistaInterface{
         _nuevaNotaD = new NuevaNotaDialog();
         _nuevaNotaD.setVisible(true);
 
+        //listeners
+        _nuevaNotaD.addCloseListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                _nuevaNotaD.setVisible(false);
+                _nuevaNotaD=null;
+            }
+        });
+
     }
 
     /**
@@ -165,6 +176,15 @@ public class Vista implements VistaInterface{
         _nuevoDestinatarioD = new NuevoDestinatarioDialog();
         _nuevoDestinatarioD.setVisible(true);
 
+        //listeners
+        _nuevoDestinatarioD.addCloseListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                _nuevoDestinatarioD.setVisible(false);
+                _nuevoDestinatarioD=null;
+            }
+        });
+
     }
     //</editor-fold>
 
@@ -179,6 +199,15 @@ public class Vista implements VistaInterface{
         _modificarDestinatarioD = new ModificarDestinatarioDialog();
         _modificarDestinatarioD.setVisible(true);
 
+        //listeners
+        _modificarDestinatarioD.addCloseListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                _modificarDestinatarioD.setVisible(false);
+                _modificarDestinatarioD=null;
+            }
+        });
+
     }
     //</editor-fold>
 
@@ -192,6 +221,15 @@ public class Vista implements VistaInterface{
 
         _eliminarDestinatarioD = new EliminarDestinatarioDialog();
         _eliminarDestinatarioD.setVisible(true);
+
+        //listeners
+        _eliminarDestinatarioD.addCloseListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                _eliminarDestinatarioD.setVisible(false);
+                _eliminarDestinatarioD=null;
+            }
+        });
 
     }
 
