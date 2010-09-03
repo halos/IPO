@@ -7,6 +7,9 @@
 
 package Vista;
 
+import java.awt.event.ActionListener;
+import java.util.LinkedList;
+
 /**
  * Clase que se encarga de generar y gestionar el diálogo para añadir nuevos
  * destinatarios
@@ -14,7 +17,14 @@ package Vista;
  */
 public class NuevoDestinatarioDialog extends javax.swing.JDialog {
 
-    /* Métodos */
+    /*---- Atributos ----*/
+
+    /**
+     * Lista con los observadores para el cerrado del diálogo
+     */
+    LinkedList<ActionListener> _llClose;
+
+    /*---- Métodos ----*/
 
     /**
      * Constructor

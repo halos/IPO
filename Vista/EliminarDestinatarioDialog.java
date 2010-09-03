@@ -9,8 +9,10 @@ package Vista;
 
 import Modelo.Destinastarios;
 import Vista.TableModels.EliminarDestinatariosTableModel;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
@@ -22,14 +24,19 @@ import javax.swing.table.TableColumn;
  */
 public class EliminarDestinatarioDialog extends javax.swing.JDialog {
 
-    /* Atributos */
+    /*---- Atributos ----*/
+
+    /**
+     * Lista con los observadores para el cerrado del diálogo
+     */
+    LinkedList<ActionListener> _llClose;
 
     /**
      * Atributo para almacenar los datos que se muestran en la tabla
      */
     EliminarDestinatariosTableModel _datosTabla;
 
-    /* Métodos */
+    /*---- Métodos ----*/
 
     /**
      * Constructor

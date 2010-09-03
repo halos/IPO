@@ -8,7 +8,9 @@
 package Vista;
 
 import Modelo.Destinastarios;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowListener;
+import java.util.LinkedList;
 
 /**
  * Clase qeu se encarga de generar y gestionar el diálogo para modificar los
@@ -18,6 +20,11 @@ import java.awt.event.WindowListener;
 public class ModificarDestinatarioDialog extends javax.swing.JDialog {
 
     /* Atributos */
+
+    /**
+     * Lista con los observadores para el cerrado del diálogo
+     */
+    LinkedList<ActionListener> _llClose;
 
     Destinastarios[] _dests;
 
@@ -39,11 +46,24 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
 
     }
 
+    /***
+     * Método para obtener el nuevo nombre del destinatario
+     * @return <tt>String</tt> con el nombre del destinatario
+     */
     public String getNewName(){
         
         return _destCB.getSelectedItem().toString();
 
     }
+
+    /**
+     * Método para añadir el listener para el cerrado del diálogo
+     * @param al Listener al que avisar al cerrar el diálogo
+     */
+    public void addCloseListener(ActionListener al){
+        _llClose.add(al);
+    }
+
 
     /** This method is called from within the constructor to
      * initialize the form.

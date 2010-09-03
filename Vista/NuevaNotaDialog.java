@@ -8,6 +8,8 @@
 package Vista;
 
 import Modelo.CamposNota;
+import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
 /**
  * clase que se encarga de generar y gestionar el diálogo para crear una nueva
@@ -16,11 +18,15 @@ import Modelo.CamposNota;
  */
 public class NuevaNotaDialog extends javax.swing.JDialog {
 
-    /* Atributos */
+    /*---- Atributos ----*/
+
+    /**
+     * Lista con los observadores para el cerrado del diálogo
+     */
+    LinkedList<ActionListener> _llClose;
 
 
-
-    /* Métodos */
+    /*---- Métodos ----*/
 
     /**
      * Constructor
