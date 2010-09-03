@@ -32,7 +32,6 @@ public class Vista implements VistaInterface{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
 
 //        new PrincipalFrame().setVisible(true);
         new EliminarDestinatarioDialog().setVisible(true);
