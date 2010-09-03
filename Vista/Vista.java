@@ -151,6 +151,13 @@ public class Vista implements VistaInterface{
             }
         });
 
+        _nuevaNotaD.addNuevaNotaListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Avisar controlador.");
+            }
+        });
+
     }
 
     /**
@@ -184,6 +191,13 @@ public class Vista implements VistaInterface{
             }
         });
 
+        _nuevoDestinatarioD.addNuevoDestinatarioListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Avisar al controlador");
+            }
+        });
+
     }
     //</editor-fold>
 
@@ -207,6 +221,13 @@ public class Vista implements VistaInterface{
             }
         });
 
+        _modificarDestinatarioD.addModDestinatarioListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Avisar al controlador");
+            }
+        });
+
     }
     //</editor-fold>
 
@@ -227,6 +248,13 @@ public class Vista implements VistaInterface{
             public void actionPerformed(ActionEvent e) {
                 _eliminarDestinatarioD.setVisible(false);
                 _eliminarDestinatarioD=null;
+            }
+        });
+
+        _eliminarDestinatarioD.addBorradoListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Avisar al controlador.");
             }
         });
 
