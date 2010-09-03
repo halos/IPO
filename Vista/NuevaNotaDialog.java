@@ -21,6 +21,11 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
     /*---- Atributos ----*/
 
     /**
+     * Lista d elos observadores del pulsado del botón de crear una nueva nota
+     */
+    LinkedList<ActionListener> _llNuevaNota;
+
+    /**
      * Lista con los observadores para el cerrado del diálogo
      */
     LinkedList<ActionListener> _llClose;
@@ -53,6 +58,15 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
      */
     public void addCloseListener(ActionListener al){
         _llClose.add(al);
+    }
+
+    /**
+     * Método para añadir un nuevo observador al pulsado del botón de añadir una
+     * nueva nota
+     * @param al Listener al que avisar al pulsar el botón de nueva nota
+     */
+    public void addNuevaNotaListener(ActionListener al){
+        _llNuevaNota.add(al);
     }
 
     /** This method is called from within the constructor to
@@ -175,8 +189,9 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void _aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__aceptarButtonActionPerformed
-        // TODO add your handling code here:
-        
+        for(ActionListener al: _llNuevaNota){
+            al.actionPerformed(evt);
+        }
     }//GEN-LAST:event__aceptarButtonActionPerformed
 
     private void _cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__cancelarButtonActionPerformed

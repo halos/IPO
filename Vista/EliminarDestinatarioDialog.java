@@ -129,8 +129,9 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
     }
 
     /**
-     * Método para añadir el listener para el cerrado del diálogo
-     * @param al Listener al que avisar al cerrar el diálogo
+     * Método para añadir el listener para el borrado de los destinatarios
+     * @param al Listener al que avisar al pulsar el botón de eliminar
+     * destintario
      */
     public void addBorradoListener(ActionListener al){
         _llBorrado.add(al);

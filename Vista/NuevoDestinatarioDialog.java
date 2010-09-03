@@ -20,6 +20,11 @@ public class NuevoDestinatarioDialog extends javax.swing.JDialog {
     /*---- Atributos ----*/
 
     /**
+     * Lista de los observadores de la pulsación del botón de nuevo destinatario
+     */
+    LinkedList<ActionListener> _llNuevoDest;
+
+    /**
      * Lista con los observadores para el cerrado del diálogo
      */
     LinkedList<ActionListener> _llClose;
@@ -49,6 +54,16 @@ public class NuevoDestinatarioDialog extends javax.swing.JDialog {
         _llClose.add(al);
     }
 
+    /**
+     * Método para añadir el listener para la pulsación del botón de crear el
+     * nuevo destinatario
+     * @param al Listener al que avisar de la pulsación del boton de nuevo
+     * destinatario
+     */
+    public void addNuevoDestinatarioListener(ActionListener al){
+        _llNuevoDest.add(al);
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -69,6 +84,11 @@ public class NuevoDestinatarioDialog extends javax.swing.JDialog {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         _aceptarButton.setText("Aceptar");
+        _aceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _aceptarButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -110,6 +130,12 @@ public class NuevoDestinatarioDialog extends javax.swing.JDialog {
             al.actionPerformed(evt);
         }
     }//GEN-LAST:event__cancelarButtonActionPerformed
+
+    private void _aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__aceptarButtonActionPerformed
+        for(ActionListener al: _llNuevoDest){
+            al.actionPerformed(evt);
+        }
+    }//GEN-LAST:event__aceptarButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

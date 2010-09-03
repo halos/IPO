@@ -22,6 +22,11 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
     /* Atributos */
 
     /**
+     * Lista de los observadores de la modificación de un destinatario
+     */
+    LinkedList<ActionListener> _llMod;
+
+    /**
      * Lista con los observadores para el cerrado del diálogo
      */
     LinkedList<ActionListener> _llClose;
@@ -64,6 +69,15 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
         _llClose.add(al);
     }
 
+    /**
+     * Método para añadir el listener para la modificación de un desti natario
+     * @param al Listener al que avisar al pulsar el boton de modificar el
+     * destinatario
+     */
+    public void addModDestinatarioListener(ActionListener al){
+        _llMod.add(al);
+    }
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -101,6 +115,11 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
         getContentPane().add(_destCB, gridBagConstraints);
 
         _aceptarButton.setText("Aceptar");
+        _aceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _aceptarButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -128,6 +147,12 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
             al.actionPerformed(evt);
         }
     }//GEN-LAST:event__cancelarButtonActionPerformed
+
+    private void _aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__aceptarButtonActionPerformed
+        for(ActionListener al: _llMod){
+            al.actionPerformed(evt);
+        }
+    }//GEN-LAST:event__aceptarButtonActionPerformed
 
     /**
     * @param args the command line arguments
