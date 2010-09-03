@@ -112,8 +112,6 @@ public class EliminarDestinatariosTableModel extends AbstractTableModel{
         }
     }
 
-
-
     /**
      * Método para comprobar si la celda es editable
      * @param rowIndex Posición de la fila de la celta
@@ -180,15 +178,24 @@ public class EliminarDestinatariosTableModel extends AbstractTableModel{
 
         for (int i = 0; i < this.getRowCount(); i++){
 
-            JCheckBox jcb = (JCheckBox) _datosTabla[i][0];
+            Boolean bcb = ((Boolean) _datosTabla[i][0]).booleanValue();
 
-            if(jcb.isSelected())
+            if(bcb)
                 llSel.add(_datosTabla[i][getColumnCount()]);
 
         }
             
         return llSel;
 
+    }
+
+    /**
+     * Método para cambiar el estado de chequeo del checkbox.
+     * @param row Fila que se desea cambiar
+     */
+    public void cambiarEstadoChecked(int row) {
+        _datosTabla[row][0] = !((Boolean)_datosTabla[row][0]).booleanValue();
+        fireTableDataChanged();
     }
 
 }

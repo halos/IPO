@@ -9,7 +9,10 @@ package Vista;
 
 import Modelo.Destinastarios;
 import Vista.TableModels.EliminarDestinatariosTableModel;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.List;
+import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 
 /**
@@ -37,14 +40,53 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
 
         initComponents();
 
+        //Ancho de la columna del checkbox
         TableColumn tc = _destinatariosTable.getColumnModel().getColumn(0);
-
         int width = 80;
-
         tc.setPreferredWidth(width);
         tc.setMinWidth(width);
         tc.setMaxWidth(width);
-        
+
+        class ListenerClickTabla implements MouseListener{
+
+            JTable tabla;
+
+            ListenerClickTabla(JTable tabla){
+                this.tabla = tabla;
+            }
+
+            private void accionRealizada(){
+
+                int fila = tabla.getSelectedRow();
+                int col = tabla.getSelectedColumn();
+                if(col==0){
+                    _datosTabla.cambiarEstadoChecked(fila);
+                }
+            }
+
+            public void mouseClicked(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void mousePressed(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void mouseReleased(MouseEvent e) {
+                this.accionRealizada();
+            }
+
+            public void mouseEntered(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void mouseExited(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+        }
+
+        _destinatariosTable.addMouseListener(new ListenerClickTabla(_destinatariosTable));
+
     }
 
     /**
