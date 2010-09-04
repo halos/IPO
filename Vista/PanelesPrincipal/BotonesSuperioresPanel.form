@@ -28,9 +28,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Nueva nota"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_nuevaNotaButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="_undoButton">
       <Properties>
@@ -40,7 +37,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Deshacer"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_undoButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="_redoButton">
@@ -50,9 +47,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Rehacer"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_redoButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="_nuevoDestButton">
       <Properties>
@@ -61,9 +55,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Nuevo destinatario"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_nuevoDestButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="_modDestButton">
       <Properties>
@@ -72,9 +63,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Modificar destinatario"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_modDestButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="_eliminarDestButton">
       <Properties>
@@ -83,9 +71,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Eliminar destinatario"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_eliminarDestButtonActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

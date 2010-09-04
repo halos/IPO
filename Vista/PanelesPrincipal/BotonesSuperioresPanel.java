@@ -9,7 +9,6 @@ package Vista.PanelesPrincipal;
 
 import Vista.Icons;
 import java.awt.event.ActionListener;
-import java.util.LinkedList;
 import javax.swing.ImageIcon;
 
 /**
@@ -20,38 +19,6 @@ import javax.swing.ImageIcon;
 public class BotonesSuperioresPanel extends javax.swing.JPanel {
 
     /*---- Atributos ----*/
-
-    /**
-     * Lista d elos observadores de la pulsación del botón de nueva nota
-     */
-    LinkedList<ActionListener> _llNuevaNota;
-
-    /**
-     * Lista d elos observadores de la pulsación del botón de deshacer
-     */
-    LinkedList<ActionListener> _llUndo;
-
-    /**
-     * Lista d elos observadores de la pulsación del botón de rehacer
-     */
-    LinkedList<ActionListener> _llRedo;
-
-    /**
-     * Lista d elos observadores de la pulsación del botón de nuevo destinatario
-     */
-    LinkedList<ActionListener> _llNuevoDest;
-
-    /**
-     * Lista d elos observadores de la pulsación del botón de modificar
-     * destinatario
-     */
-    LinkedList<ActionListener> _llModDest;
-
-    /**
-     * Lista d elos observadores de la pulsación del botón de eliminar
-     * destinatario
-     */
-    LinkedList<ActionListener> _llElimDest;
 
     /*---- Métodos ----*/
 
@@ -68,7 +35,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
      * @param al Observador de la pulsación del botón nueva nota
      */
     public void addNuevaNotaButtonListener(ActionListener al){
-        _llNuevaNota.add(al);
+        _nuevaNotaButton.addActionListener(al);
     }
 
     /**
@@ -76,7 +43,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
      * @param al Observador de la pulsación del botón deshacer
      */
     public void addUndoButtonListener(ActionListener al){
-        _llUndo.add(al);
+        _undoButton.addActionListener(al);
     }
 
     /**
@@ -84,7 +51,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
      * @param al Observador de la pulsación del botón rehacer
      */
     public void addRedoButtonListener(ActionListener al){
-        _llRedo.add(al);
+        _redoButton.addActionListener(al);
     }
 
     /**
@@ -93,7 +60,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
      * @param al Observador de la pulsación del botón nuevo destinatario
      */
     public void addNuevoDestinatarioButtonListener(ActionListener al){
-        _llNuevoDest.add(al);
+        _nuevoDestButton.addActionListener(al);
     }
 
     /**
@@ -102,7 +69,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
      * @param al Observador de la pulsación del botón modificar destinatario
      */
     public void addModificarDestinatarioButtonListener(ActionListener al){
-        _llModDest.add(al);
+        _modDestButton.addActionListener(al);
     }
 
     /**
@@ -111,7 +78,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
      * @param al Observador de la pulsación del botón eliminar destinatario
      */
     public void addEliminarDestinatarioButtonListener(ActionListener al){
-        _llElimDest.add(al);
+        _eliminarDestButton.addActionListener(al);
     }
 
     /** This method is called from within the constructor to
@@ -135,82 +102,37 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
 
         _nuevaNotaButton.setIcon(new ImageIcon(Icons.getIconNewNote()));
         _nuevaNotaButton.setToolTipText("Nueva nota");
-        _nuevaNotaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _nuevaNotaButtonActionPerformed(evt);
-            }
-        });
         add(_nuevaNotaButton);
 
         _undoButton.setIcon(new ImageIcon(Icons.getIconUndo()));
         _undoButton.setToolTipText("Deshacer");
         _undoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _undoButtonActionPerformed(evt);
+                _(evt);
             }
         });
         add(_undoButton);
 
         _redoButton.setIcon(new ImageIcon(Icons.getIconRedo()));
         _redoButton.setToolTipText("Rehacer");
-        _redoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _redoButtonActionPerformed(evt);
-            }
-        });
         add(_redoButton);
 
         _nuevoDestButton.setIcon(new ImageIcon(Icons.getIconAddDest()));
         _nuevoDestButton.setToolTipText("Nuevo destinatario");
-        _nuevoDestButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _nuevoDestButtonActionPerformed(evt);
-            }
-        });
         add(_nuevoDestButton);
 
         _modDestButton.setIcon(new ImageIcon(Icons.getIconEditDest()));
         _modDestButton.setToolTipText("Modificar destinatario");
-        _modDestButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _modDestButtonActionPerformed(evt);
-            }
-        });
         add(_modDestButton);
 
         _eliminarDestButton.setIcon(new ImageIcon(Icons.getIconDeleteDest()));
         _eliminarDestButton.setToolTipText("Eliminar destinatario");
-        _eliminarDestButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _eliminarDestButtonActionPerformed(evt);
-            }
-        });
         add(_eliminarDestButton);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void _nuevaNotaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__nuevaNotaButtonActionPerformed
+    private void _(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__
         // TODO add your handling code here:
-    }//GEN-LAST:event__nuevaNotaButtonActionPerformed
-
-    private void _undoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__undoButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event__undoButtonActionPerformed
-
-    private void _redoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__redoButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event__redoButtonActionPerformed
-
-    private void _nuevoDestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__nuevoDestButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event__nuevoDestButtonActionPerformed
-
-    private void _modDestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__modDestButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event__modDestButtonActionPerformed
-
-    private void _eliminarDestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__eliminarDestButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event__eliminarDestButtonActionPerformed
+    }//GEN-LAST:event__
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

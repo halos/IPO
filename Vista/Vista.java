@@ -33,8 +33,8 @@ public class Vista implements VistaInterface{
      */
     public static void main(String[] args) {
 
-//        new PrincipalFrame().setVisible(true);
-        new EliminarDestinatarioDialog().setVisible(true);
+        new PrincipalFrame().setVisible(true);
+//        new EliminarDestinatarioDialog().setVisible(true);
 //        new ModificarDestinatarioDialog().setVisible(true);
 
     }
@@ -258,6 +258,18 @@ public class Vista implements VistaInterface{
             }
         });
 
+    }
+
+    public void resultadosBusquedaCambiados() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public CamposNota getCamposNotaSeleccionada() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void setNotaDetalles(Nota n) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     //</editor-fold>    

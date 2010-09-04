@@ -12,6 +12,7 @@ import Modelo.Destinastarios;
 import Modelo.NombreCamposNota;
 import Modelo.Prioridades;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.util.LinkedList;
 
 /**
@@ -21,16 +22,6 @@ import java.util.LinkedList;
 public class DetallesNotaPanel extends javax.swing.JPanel {
 
     /*---- Atributos ----*/
-
-    /**
-     * Lista de observadores del pulsado del botón de marcar como no leída
-     */
-    LinkedList<ActionListener> _llMarcarNoLeida;
-
-    /**
-     * Lista de observcadores del cambio de estado de editable
-     */
-    LinkedList<ActionListener> _llEditableChg;
 
     /*---- Métodos ----*/
 
@@ -132,7 +123,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      * @param al Observador del pulsado del botón de marcar como no leído
      */
     public void addMarcarNoLeidaButtonListener(ActionListener al){
-        _llMarcarNoLeida.add(al);
+        _marcarNoLeidaButton.addActionListener(al);
     }
 
     /**
@@ -141,8 +132,8 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      * @param al Observador del cambio de estado del checkbox
      * <tt>_editableCheckBox</tt>
      */
-    public void addEditableStateChangedListener(ActionListener al){
-        _llEditableChg.add(al);
+    public void addEditableStateChangedListener(ItemListener il){
+        _editableCheckBox.addItemListener(il);
     }
 
     /** This method is called from within the constructor to
@@ -170,11 +161,6 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         setLayout(new java.awt.GridBagLayout());
 
         _editableCheckBox.setText("Editable"); // NOI18N
-        _editableCheckBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                estadoCambiado(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -220,11 +206,6 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         add(_prioridadDetallesLabel, gridBagConstraints);
 
         _marcarNoLeidaButton.setText("Marcar no leída"); // NOI18N
-        _marcarNoLeidaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _marcarNoLeidaButtonActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -260,18 +241,6 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(_fechaDetallesFTF, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void _marcarNoLeidaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__marcarNoLeidaButtonActionPerformed
-        for(ActionListener al: _llMarcarNoLeida){
-            al.actionPerformed(evt);
-        }
-    }//GEN-LAST:event__marcarNoLeidaButtonActionPerformed
-
-    private void estadoCambiado(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_estadoCambiado
-        for(ActionListener al: _llEditableChg){
-            al.actionPerformed(evt);
-        }
-    }//GEN-LAST:event_estadoCambiado
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
