@@ -9,6 +9,7 @@ package Vista.PanelesPrincipal;
 
 import Modelo.Nota;
 import Vista.TableModels.ResultadosBusquedaTableModel;
+import java.awt.event.MouseListener;
 import java.util.List;
 import javax.swing.JTable;
 
@@ -53,6 +54,16 @@ public class ResultadosBusquedaPanel extends javax.swing.JPanel {
      */
     public void refrescarDatos(List<Nota> datos){
         _datosTabla.refrescarDatos(datos);
+    }
+
+    /**
+     * Método para añadir un observador que sea notificado de que se ha hecho
+     * click sobre la tabla
+     * @param ml obsevador que será notificado de que se ha hecho click sobre la
+     * tabla
+     */
+    public void addClickTablaListener(MouseListener ml){
+        _resBusqTable.addMouseListener(ml);
     }
 
     /** This method is called from within the constructor to
