@@ -13,7 +13,6 @@ import Modelo.NombreCamposNota;
 import Modelo.Prioridades;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
-import java.util.LinkedList;
 
 /**
  * Clase para generar y gestionar el panel que muestra los detalles de una nota
@@ -51,6 +50,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         _prioridadDetallesCB.setEditable(editable);
         _fechaDetallesFTF.setEditable(editable);
         _textoTA.setEditable(editable);
+        _asuntoTextField.setEditable(editable);
 
     }
 
@@ -81,6 +81,9 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
 
         //TEXTO
         cn.añadirCampo(NombreCamposNota.TEXTO, _textoTA.getText());
+
+        //ASUNTO
+        cn.añadirCampo(NombreCamposNota.ASUNTO, _asuntoTextField.getText());
 
         return cn;
 
@@ -114,6 +117,9 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
             if(p.equals(_prioridadDetallesCB.getItemAt(i)))
                 _prioridadDetallesCB.setSelectedIndex(i);
 
+        //ASUNTO
+        _asuntoTextField.setText((String) cn.getValueOf(
+                NombreCamposNota.ASUNTO));
 
     }
 
@@ -156,6 +162,8 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         _textoTA = new javax.swing.JTextArea();
         _fechaDetallesFTF = new javax.swing.JFormattedTextField();
+        _asuntoLabel = new javax.swing.JLabel();
+        _asuntoTextField = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Detalles nota"));
         setLayout(new java.awt.GridBagLayout());
@@ -186,7 +194,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
 
         _fechaDetallesLabel.setText("Fecha"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(_fechaDetallesLabel, gridBagConstraints);
@@ -236,14 +244,31 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         _fechaDetallesFTF.setToolTipText(""); // NOI18N
         _fechaDetallesFTF.setPreferredSize(new java.awt.Dimension(90, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(_fechaDetallesFTF, gridBagConstraints);
+
+        _asuntoLabel.setText("Asunto");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(_asuntoLabel, gridBagConstraints);
+
+        _asuntoTextField.setPreferredSize(new java.awt.Dimension(90, 18));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        add(_asuntoTextField, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel _asuntoLabel;
+    private javax.swing.JTextField _asuntoTextField;
     private javax.swing.JComboBox _destinatarioDetallesCB;
     private javax.swing.JLabel _destinatarioDetallesLabel;
     private javax.swing.JCheckBox _editableCheckBox;

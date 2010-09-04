@@ -8,6 +8,8 @@ package Vista.PanelesPrincipal;
 
 import Modelo.CamposNota;
 import Modelo.NombreCamposNota;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -52,6 +54,19 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
 
         return criteriosCN;
 
+    }
+
+    /**
+     * Método para añadir listeners que notifiquen el cambio de criterios de
+     * búsqueda
+     * @param al Listener que será notificado al cambiar algún criterio de
+     * buśqueda
+     */
+    public void addCriteriosBusquedaCambiadosListener(ActionListener al){
+        _textoBusquedaTF.addKeyListener((KeyListener) al);
+        _fechaBusquedaFTF.addKeyListener((KeyListener) al);
+        _destinatarioBusquedaCB.addActionListener(al);
+        _prioridadBusquedaCB.addActionListener(al);
     }
 
     /** This method is called from within the constructor to
