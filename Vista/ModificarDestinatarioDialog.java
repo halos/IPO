@@ -21,16 +21,6 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
 
     /* Atributos */
 
-    /**
-     * Lista de los observadores de la modificación de un destinatario
-     */
-    LinkedList<ActionListener> _llMod;
-
-    /**
-     * Lista con los observadores para el cerrado del diálogo
-     */
-    LinkedList<ActionListener> _llClose;
-
     Destinastarios[] _dests;
 
     /* Métodos */
@@ -66,7 +56,7 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
      * @param al Listener al que avisar al cerrar el diálogo
      */
     public void addCloseListener(ActionListener al){
-        _llClose.add(al);
+        _cancelarButton.addActionListener(al);
     }
 
     /**
@@ -75,7 +65,7 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
      * destinatario
      */
     public void addModDestinatarioListener(ActionListener al){
-        _llMod.add(al);
+        _aceptarButton.addActionListener(al);
     }
 
 
@@ -115,11 +105,6 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
         getContentPane().add(_destCB, gridBagConstraints);
 
         _aceptarButton.setText("Aceptar");
-        _aceptarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _aceptarButtonActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -127,11 +112,6 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
         getContentPane().add(_aceptarButton, gridBagConstraints);
 
         _cancelarButton.setText("Cancelar");
-        _cancelarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _cancelarButtonActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -141,18 +121,6 @@ public class ModificarDestinatarioDialog extends javax.swing.JDialog {
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-375)/2, (screenSize.height-224)/2, 375, 224);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void _cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__cancelarButtonActionPerformed
-        for(ActionListener al: _llClose){
-            al.actionPerformed(evt);
-        }
-    }//GEN-LAST:event__cancelarButtonActionPerformed
-
-    private void _aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__aceptarButtonActionPerformed
-        for(ActionListener al: _llMod){
-            al.actionPerformed(evt);
-        }
-    }//GEN-LAST:event__aceptarButtonActionPerformed
 
     /**
     * @param args the command line arguments

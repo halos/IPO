@@ -13,6 +13,7 @@ import Modelo.NombreCamposNota;
 import Modelo.Prioridades;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyListener;
 
 /**
  * Clase para generar y gestionar el panel que muestra los detalles de una nota
@@ -140,6 +141,18 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      */
     public void addEditableStateChangedListener(ItemListener il){
         _editableCheckBox.addItemListener(il);
+    }
+
+    /**
+     * Método para añadir un listener cuando la nota cambie
+     * @param al Listener que es notificado al cambiar la nota
+     */
+    public void addNotaCambiadaListener(ActionListener al){
+        _destinatarioDetallesCB.addActionListener(al);
+        _prioridadDetallesCB.addActionListener(al);
+        _asuntoTextField.addKeyListener((KeyListener) al);
+        _fechaDetallesFTF.addKeyListener((KeyListener) al);
+        _textoTA.addKeyListener((KeyListener) al);
     }
 
     /** This method is called from within the constructor to

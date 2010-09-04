@@ -9,7 +9,6 @@ package Vista;
 
 import Modelo.CamposNota;
 import java.awt.event.ActionListener;
-import java.util.LinkedList;
 
 /**
  * clase que se encarga de generar y gestionar el diálogo para crear una nueva
@@ -19,17 +18,6 @@ import java.util.LinkedList;
 public class NuevaNotaDialog extends javax.swing.JDialog {
 
     /*---- Atributos ----*/
-
-    /**
-     * Lista d elos observadores del pulsado del botón de crear una nueva nota
-     */
-    LinkedList<ActionListener> _llNuevaNota;
-
-    /**
-     * Lista con los observadores para el cerrado del diálogo
-     */
-    LinkedList<ActionListener> _llClose;
-
 
     /*---- Métodos ----*/
 
@@ -57,7 +45,7 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
      * @param al Listener al que avisar al cerrar el diálogo
      */
     public void addCloseListener(ActionListener al){
-        _llClose.add(al);
+        _cancelarButton.addActionListener(al);
     }
 
     /**
@@ -66,7 +54,7 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
      * @param al Listener al que avisar al pulsar el botón de nueva nota
      */
     public void addNuevaNotaListener(ActionListener al){
-        _llNuevaNota.add(al);
+        _aceptarButton.addActionListener(al);
     }
 
     /** This method is called from within the constructor to
@@ -162,11 +150,6 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
         getContentPane().add(jScrollPane1, gridBagConstraints);
 
         _aceptarButton.setText("Aceptar");
-        _aceptarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _aceptarButtonActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -174,11 +157,6 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
         getContentPane().add(_aceptarButton, gridBagConstraints);
 
         _cancelarButton.setText("Cancelar");
-        _cancelarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _cancelarButtonActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -187,18 +165,6 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void _aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__aceptarButtonActionPerformed
-        for(ActionListener al: _llNuevaNota){
-            al.actionPerformed(evt);
-        }
-    }//GEN-LAST:event__aceptarButtonActionPerformed
-
-    private void _cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__cancelarButtonActionPerformed
-        for(ActionListener al: _llClose){
-            al.actionPerformed(evt);
-        }
-    }//GEN-LAST:event__cancelarButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton _aceptarButton;

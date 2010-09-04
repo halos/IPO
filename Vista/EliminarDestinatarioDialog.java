@@ -12,7 +12,6 @@ import Vista.TableModels.EliminarDestinatariosTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
@@ -25,16 +24,6 @@ import javax.swing.table.TableColumn;
 public class EliminarDestinatarioDialog extends javax.swing.JDialog {
 
     /*---- Atributos ----*/
-
-    /**
-     * Lista de observadores del borrado de destinatarios
-     */
-    LinkedList<ActionListener> _llBorrado;
-
-    /**
-     * Lista con los observadores para el cerrado del diálogo
-     */
-    LinkedList<ActionListener> _llClose;
 
     /**
      * Atributo para almacenar los datos que se muestran en la tabla
@@ -125,7 +114,7 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
      * @param al Listener al que avisar al cerrar el diálogo
      */
     public void addCloseListener(ActionListener al){
-        _llClose.add(al);
+        _cancelarButton.addActionListener(al);
     }
 
     /**
@@ -134,7 +123,7 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
      * destintario
      */
     public void addBorradoListener(ActionListener al){
-        _llBorrado.add(al);
+        _borrarSelecionadosButton.addActionListener(al);
     }
 
     /** This method is called from within the constructor to
@@ -157,11 +146,6 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         _borrarSelecionadosButton.setText("Borrar seleccionados");
-        _borrarSelecionadosButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _borrarSelecionadosButtonActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -170,11 +154,6 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
         getContentPane().add(_borrarSelecionadosButton, gridBagConstraints);
 
         _cancelarButton.setText("Cancelar");
-        _cancelarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _cancelarButtonActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -195,18 +174,6 @@ public class EliminarDestinatarioDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void _cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__cancelarButtonActionPerformed
-        for(ActionListener al: _llClose){
-            al.actionPerformed(evt);
-        }
-    }//GEN-LAST:event__cancelarButtonActionPerformed
-
-    private void _borrarSelecionadosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__borrarSelecionadosButtonActionPerformed
-        for(ActionListener al: _llBorrado){
-            al.actionPerformed(evt);
-        }
-    }//GEN-LAST:event__borrarSelecionadosButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton _borrarSelecionadosButton;
