@@ -5,8 +5,7 @@ import Controlador.ControladorInterface;
 import Modelo.CamposNota;
 import Modelo.ModeloInterface;
 import Modelo.Nota;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.List;
 
 /**
@@ -63,7 +62,30 @@ public class Vista implements VistaInterface{
 
     /** Métodos de _botSup **/
 
+    /**
+     * Método para añadir un nuevo observador de la pulsación del botón nueva
+     * nota
+     * @param al Observador de la pulsación del botón nueva nota
+     */
+    public void addNuevaNotaButtonListener(ActionListener al){
+        _principalF.addNuevaNotaButtonListener(al);
+    }
 
+    /**
+     * Método para añadir un nuevo observador de la pulsación del botón deshacer
+     * @param al Observador de la pulsación del botón deshacer
+     */
+    public void addUndoButtonListener(ActionListener al){
+        _principalF.addUndoButtonListener(al);
+    }
+
+    /**
+     * Método para añadir un nuevo observador de la pulsación del botón rehacer
+     * @param al Observador de la pulsación del botón rehacer
+     */
+    public void addRedoButtonListener(ActionListener al){
+        _principalF.addRedoButtonListener(al);
+    }
 
     /** Métodos de _critBusq **/
 
@@ -75,6 +97,16 @@ public class Vista implements VistaInterface{
 
         return _principalF.getCriteriosBusqueda();
 
+    }
+
+    /**
+     * Método para añadir listeners que notifiquen el cambio de criterios de
+     * búsqueda
+     * @param al Listener que será notificado al cambiar algún criterio de
+     * buśqueda
+     */
+    public void addCriteriosBusquedaCambiadosListener(ActionListener al){
+        _principalF.addCriteriosBusquedaCambiadosListener(al);
     }
 
     /** Métodos de _detNota **/
@@ -112,6 +144,33 @@ public class Vista implements VistaInterface{
         _principalF.setCamposNota(cn);
     }
 
+    /**
+     * Método para añadir un observador al pulsado del botón de marcar como no
+     * leída
+     * @param al Observador del pulsado del botón de marcar como no leído
+     */
+    public void addMarcarNoLeidaButtonListener(ActionListener al){
+        _principalF.addMarcarNoLeidaButtonListener(al);
+    }
+
+    /**
+     * Método para añadir un observador al cambio de estado del checkbox
+     * <tt>_editableCheckBox</tt>
+     * @param al Observador del cambio de estado del checkbox
+     * <tt>_editableCheckBox</tt>
+     */
+    public void addEditableStateChangedListener(ItemListener il){
+        _principalF.addEditableStateChangedListener(il);
+    }
+
+    /**
+     * Método para añadir un listener cuando la nota cambie
+     * @param al Listener que es notificado al cambiar la nota
+     */
+    public void addNotaCambiadaListener(ActionListener al){
+        _principalF.addNotaCambiadaListener(al);
+    }
+
     /** Métodos de _resBusq **/
 
     /**
@@ -129,6 +188,17 @@ public class Vista implements VistaInterface{
     public void refrescarDatosResBusqueda(List<Nota> datos){
         _principalF.refrescarDatosResBusqueda(datos);
     }
+
+    /**
+     * Método para añadir un observador que sea notificado de que se ha hecho
+     * click sobre la tabla
+     * @param ml obsevador que será notificado de que se ha hecho click sobre la
+     * tabla
+     */
+    public void addClickTablaListener(MouseListener ml){
+        _principalF.addClickTablaListener(ml);
+    }
+
     //</editor-fold>
 
     /**** NuevaNotaDialog ****/
@@ -169,6 +239,24 @@ public class Vista implements VistaInterface{
         return _nuevaNotaD.getCamposNota();
 
     }
+
+    /**
+     * Método para añadir el listener para el cerrado del diálogo
+     * @param al Listener al que avisar al cerrar el diálogo
+     */
+    public void addCloseListener(ActionListener al){
+        _nuevaNotaD.addCloseListener(al);
+    }
+
+    /**
+     * Método para añadir un nuevo observador al pulsado del botón de añadir una
+     * nueva nota
+     * @param al Listener al que avisar al pulsar el botón de nueva nota
+     */
+    public void addNuevaNotaListener(ActionListener al){
+        _nuevaNotaD.addNuevaNotaListener(al);
+    }
+
     // </editor-fold>
 
     /**** NuevoDestinatarioDialog ****/

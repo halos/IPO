@@ -9,10 +9,8 @@ package Vista;
 
 import Modelo.CamposNota;
 import Modelo.Nota;
-import Vista.PanelesPrincipal.DetallesNotaPanel;
-import Vista.PanelesPrincipal.ResultadosBusquedaPanel;
-import Vista.PanelesPrincipal.CriteriosBusquedaPanel;
-import Vista.PanelesPrincipal.BotonesSuperioresPanel;
+import Vista.PanelesPrincipal.*;
+import java.awt.event.*;
 import java.util.List;
 
 /**
@@ -46,6 +44,58 @@ public class PrincipalFrame extends javax.swing.JFrame {
     /** Métodos de _botSup **/
     //<editor-fold defaultstate="collapsed" desc="métodos">
 
+    /**
+     * Método para añadir un nuevo observador de la pulsación del botón nueva
+     * nota
+     * @param al Observador de la pulsación del botón nueva nota
+     */
+    public void addNuevaNotaButtonListener(ActionListener al){
+        _botSup.addNuevaNotaButtonListener(al);
+    }
+
+    /**
+     * Método para añadir un nuevo observador de la pulsación del botón deshacer
+     * @param al Observador de la pulsación del botón deshacer
+     */
+    public void addUndoButtonListener(ActionListener al){
+        _botSup.addUndoButtonListener(al);
+    }
+
+    /**
+     * Método para añadir un nuevo observador de la pulsación del botón rehacer
+     * @param al Observador de la pulsación del botón rehacer
+     */
+    public void addRedoButtonListener(ActionListener al){
+        _botSup.addRedoButtonListener(al);
+    }
+
+    /**
+     * Método para añadir un nuevo observador de la pulsación del botón nuevo
+     * destinatario
+     * @param al Observador de la pulsación del botón nuevo destinatario
+     */
+    public void addNuevoDestinatarioButtonListener(ActionListener al){
+        _botSup.addNuevoDestinatarioButtonListener(al);
+    }
+
+    /**
+     * Método para añadir un nuevo observador de la pulsación del botón
+     * modificar destinatario
+     * @param al Observador de la pulsación del botón modificar destinatario
+     */
+    public void addModificarDestinatarioButtonListener(ActionListener al){
+       _botSup.addModificarDestinatarioButtonListener(al);
+    }
+
+    /**
+     * Método para añadir un nuevo observador de la pulsación del botón eliminar
+     * destinatario
+     * @param al Observador de la pulsación del botón eliminar destinatario
+     */
+    public void addEliminarDestinatarioButtonListener(ActionListener al){
+        _botSup.addEliminarDestinatarioButtonListener(al);
+    }
+
     //</editor-fold>
 
     /** Métodos de _critBusq **/
@@ -59,6 +109,16 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
         return _critBusq.getCriteriosBusqueda();
 
+    }
+
+    /**
+     * Método para añadir listeners que notifiquen el cambio de criterios de
+     * búsqueda
+     * @param al Listener que será notificado al cambiar algún criterio de
+     * buśqueda
+     */
+    public void addCriteriosBusquedaCambiadosListener(ActionListener al){
+        _critBusq.addCriteriosBusquedaCambiadosListener(al);
     }
 
     //</editor-fold>
@@ -99,6 +159,33 @@ public class PrincipalFrame extends javax.swing.JFrame {
         _detNota.setCamposNota(cn);
     }
 
+    /**
+     * Método para añadir un observador al pulsado del botón de marcar como no
+     * leída
+     * @param al Observador del pulsado del botón de marcar como no leído
+     */
+    public void addMarcarNoLeidaButtonListener(ActionListener al){
+        _detNota.addMarcarNoLeidaButtonListener(al);
+    }
+
+    /**
+     * Método para añadir un observador al cambio de estado del checkbox
+     * <tt>_editableCheckBox</tt>
+     * @param al Observador del cambio de estado del checkbox
+     * <tt>_editableCheckBox</tt>
+     */
+    public void addEditableStateChangedListener(ItemListener il){
+        _detNota.addEditableStateChangedListener(il);
+    }
+
+    /**
+     * Método para añadir un listener cuando la nota cambie
+     * @param al Listener que es notificado al cambiar la nota
+     */
+    public void addNotaCambiadaListener(ActionListener al){
+        _detNota.addNotaCambiadaListener(al);
+    }
+
     //</editor-fold>
 
     /** Métodos de _resBusq **/
@@ -118,6 +205,16 @@ public class PrincipalFrame extends javax.swing.JFrame {
      */
     public void refrescarDatosResBusqueda(List<Nota> datos){
         _resBusq.refrescarDatos(datos);
+    }
+
+    /**
+     * Método para añadir un observador que sea notificado de que se ha hecho
+     * click sobre la tabla
+     * @param ml obsevador que será notificado de que se ha hecho click sobre la
+     * tabla
+     */
+    public void addClickTablaListener(MouseListener ml){
+        _resBusq.addClickTablaListener(ml);
     }
 
     //</editor-fold>
