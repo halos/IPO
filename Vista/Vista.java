@@ -21,9 +21,6 @@ public class Vista implements VistaInterface{
 
     PrincipalFrame _principalF;
     NuevaNotaDialog _nuevaNotaD;
-    NuevoDestinatarioDialog _nuevoDestinatarioD;
-    ModificarDestinatarioDialog _modificarDestinatarioD;
-    EliminarDestinatarioDialog _eliminarDestinatarioD;
 
     /*---- Métodos ----*/
 
@@ -258,108 +255,5 @@ public class Vista implements VistaInterface{
     }
 
     // </editor-fold>
-
-    /**** NuevoDestinatarioDialog ****/
-    //<editor-fold defaultstate="collapsed" desc="métodos">
-
-    /**
-     * Método para mostrar el frame para añadir un nuevo destinatario
-     */
-    public void mostrarNuevoDestinatario(){
-
-        _nuevoDestinatarioD = new NuevoDestinatarioDialog();
-        _nuevoDestinatarioD.setVisible(true);
-
-        //listeners
-        _nuevoDestinatarioD.addCloseListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                _nuevoDestinatarioD.setVisible(false);
-                _nuevoDestinatarioD=null;
-            }
-        });
-
-        _nuevoDestinatarioD.addNuevoDestinatarioListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Avisar al controlador");
-            }
-        });
-
-    }
-    //</editor-fold>
-
-    /**** ModificarDestinatarioDialog ****/
-    //<editor-fold defaultstate="collapsed" desc="métodos">
-
-    /**
-     * Método para mostrar el frame para modificar un destinatario
-     */
-    public void mostrarModificarDestinatarioDialog(){
-
-        _modificarDestinatarioD = new ModificarDestinatarioDialog();
-        _modificarDestinatarioD.setVisible(true);
-
-        //listeners
-        _modificarDestinatarioD.addCloseListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                _modificarDestinatarioD.setVisible(false);
-                _modificarDestinatarioD=null;
-            }
-        });
-
-        _modificarDestinatarioD.addModDestinatarioListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Avisar al controlador");
-            }
-        });
-
-    }
-    //</editor-fold>
-
-    /**** EliminarDestinatarioDialog ****/
-    //<editor-fold defaultstate="collapsed" desc="métodos">
-
-    /**
-     * Método para mostrar el frame para eliminar un destinatario
-     */
-    public void mostrarEliminarDestinatarioDialog(){
-
-        _eliminarDestinatarioD = new EliminarDestinatarioDialog();
-        _eliminarDestinatarioD.setVisible(true);
-
-        //listeners
-        _eliminarDestinatarioD.addCloseListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                _eliminarDestinatarioD.setVisible(false);
-                _eliminarDestinatarioD=null;
-            }
-        });
-
-        _eliminarDestinatarioD.addBorradoListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Avisar al controlador.");
-            }
-        });
-
-    }
-
-    public void resultadosBusquedaCambiados() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public CamposNota getCamposNotaSeleccionada() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void setNotaDetalles(Nota n) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    //</editor-fold>    
 
 }

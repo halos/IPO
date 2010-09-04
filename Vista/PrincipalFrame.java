@@ -69,33 +69,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
         _botSup.addRedoButtonListener(al);
     }
 
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón nuevo
-     * destinatario
-     * @param al Observador de la pulsación del botón nuevo destinatario
-     */
-    public void addNuevoDestinatarioButtonListener(ActionListener al){
-        _botSup.addNuevoDestinatarioButtonListener(al);
-    }
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón
-     * modificar destinatario
-     * @param al Observador de la pulsación del botón modificar destinatario
-     */
-    public void addModificarDestinatarioButtonListener(ActionListener al){
-       _botSup.addModificarDestinatarioButtonListener(al);
-    }
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón eliminar
-     * destinatario
-     * @param al Observador de la pulsación del botón eliminar destinatario
-     */
-    public void addEliminarDestinatarioButtonListener(ActionListener al){
-        _botSup.addEliminarDestinatarioButtonListener(al);
-    }
-
     //</editor-fold>
 
     /** Métodos de _critBusq **/

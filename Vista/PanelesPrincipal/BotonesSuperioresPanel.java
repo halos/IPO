@@ -54,33 +54,6 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
         _redoButton.addActionListener(al);
     }
 
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón nuevo
-     * destinatario
-     * @param al Observador de la pulsación del botón nuevo destinatario
-     */
-    public void addNuevoDestinatarioButtonListener(ActionListener al){
-        _nuevoDestButton.addActionListener(al);
-    }
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón
-     * modificar destinatario
-     * @param al Observador de la pulsación del botón modificar destinatario
-     */
-    public void addModificarDestinatarioButtonListener(ActionListener al){
-        _modDestButton.addActionListener(al);
-    }
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón eliminar
-     * destinatario
-     * @param al Observador de la pulsación del botón eliminar destinatario
-     */
-    public void addEliminarDestinatarioButtonListener(ActionListener al){
-        _eliminarDestButton.addActionListener(al);
-    }
-
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -93,9 +66,6 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
         _nuevaNotaButton = new javax.swing.JButton();
         _undoButton = new javax.swing.JButton();
         _redoButton = new javax.swing.JButton();
-        _nuevoDestButton = new javax.swing.JButton();
-        _modDestButton = new javax.swing.JButton();
-        _eliminarDestButton = new javax.swing.JButton();
 
         setBorder(null);
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
@@ -116,18 +86,6 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
         _redoButton.setIcon(new ImageIcon(Icons.getIconRedo()));
         _redoButton.setToolTipText("Rehacer");
         add(_redoButton);
-
-        _nuevoDestButton.setIcon(new ImageIcon(Icons.getIconAddDest()));
-        _nuevoDestButton.setToolTipText("Nuevo destinatario");
-        add(_nuevoDestButton);
-
-        _modDestButton.setIcon(new ImageIcon(Icons.getIconEditDest()));
-        _modDestButton.setToolTipText("Modificar destinatario");
-        add(_modDestButton);
-
-        _eliminarDestButton.setIcon(new ImageIcon(Icons.getIconDeleteDest()));
-        _eliminarDestButton.setToolTipText("Eliminar destinatario");
-        add(_eliminarDestButton);
     }// </editor-fold>//GEN-END:initComponents
 
     private void _(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__
@@ -136,10 +94,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton _eliminarDestButton;
-    private javax.swing.JButton _modDestButton;
     private javax.swing.JButton _nuevaNotaButton;
-    private javax.swing.JButton _nuevoDestButton;
     private javax.swing.JButton _redoButton;
     private javax.swing.JButton _undoButton;
     // End of variables declaration//GEN-END:variables
