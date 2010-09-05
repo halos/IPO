@@ -35,8 +35,8 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
         
         super();
         //+1 : Para almacenar la nota
-        //-1 : El campo leída no entra
-        _nombreColumnas = new String[NombreCamposNota.values().length+1-1];
+        //-1 : El valor de leído no se muestra
+        _nombreColumnas = new String[NombreCamposNota.values().length-1];
 
         int i = 0;
         for(NombreCamposNota nCN: NombreCamposNota.values()){
@@ -155,19 +155,23 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
             CamposNota c = n.getCamposNota();
             leida = (Boolean) c.getValueOf(NombreCamposNota.LEIDA);
 
-            //para todos los campos de la nota
-            int columna=0;
             String texto;
 
+            //para todos los campos de la nota
             for (NombreCamposNota m: c.getKeys()){
-                if(m != NombreCamposNota.LEIDA){
-                    texto = c.getValueOf(m).toString();
+                //buscar su columna
+                for (int columna = 0; columna < _nombreColumnas.length; columna++) {
+                    if(getColumnName(columna).equals(m.getNombre())){
+                        texto = c.getValueOf(m).toString();
 
-                    if(!leida)
-                        texto = "<html><b>"+texto+"</b></html>";
+                        if(!leida)
+                            texto = "<html><b>"+texto+"</b></html>";
 
-                    _datosTabla[fila][columna++]= texto;
+                        _datosTabla[fila][columna++]= texto;
+                    }
+
                 }
+
             }
 
             fila++;

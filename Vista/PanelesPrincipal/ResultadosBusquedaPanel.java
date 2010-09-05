@@ -10,6 +10,7 @@ package Vista.PanelesPrincipal;
 import Modelo.CamposNota;
 import Modelo.NombreCamposNota;
 import Modelo.Nota;
+import Modelo.Prioridades;
 import Vista.TableModels.ResultadosBusquedaTableModel;
 import java.awt.event.MouseListener;
 import java.util.*;
@@ -51,9 +52,19 @@ public class ResultadosBusquedaPanel extends javax.swing.JPanel {
         cn.añadirCampo(NombreCamposNota.TEXTO, "text: implementando");
         cn.añadirCampo(NombreCamposNota.PRIORIDAD, "prior: Alta");
 
-        Nota n = new Nota(cn);
+        lln.add(new Nota(cn));
 
-        lln.add(n);
+        cn = new CamposNota();
+
+        cn.añadirCampo(NombreCamposNota.FECHA, "30/11/1987");
+        cn.añadirCampo(NombreCamposNota.ASUNTO, "Asunt: cnch");
+        cn.añadirCampo(NombreCamposNota.DESTINATARIO, "dest: andres");
+        cn.añadirCampo(NombreCamposNota.LEIDA, new Boolean(true));
+        cn.añadirCampo(NombreCamposNota.TEXTO, "text: implementando");
+        cn.añadirCampo(NombreCamposNota.PRIORIDAD, "urgente");
+
+        lln.add(new Nota(cn));
+
         _datosTabla.refrescarDatos(lln);
 
         /************************ Fin código de prueba ************************/
