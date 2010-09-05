@@ -29,9 +29,10 @@ public class Vista implements VistaInterface{
      */
     public static void main(String[] args) {
 
-        new PrincipalFrame().setVisible(true);
+//        new PrincipalFrame().setVisible(true);
 //        new EliminarDestinatarioDialog().setVisible(true);
 //        new ModificarDestinatarioDialog().setVisible(true);
+        new Vista(null, null);
 
     }
 
@@ -44,6 +45,21 @@ public class Vista implements VistaInterface{
 
         _modelo = modelo;
         _controlador = controlador;
+
+        _principalF = new PrincipalFrame();
+
+        //-------------------------------------
+        this.mostrarGUI();
+        //-------------------------------------
+
+
+        _principalF.addNuevaNotaButtonListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                mostrarNuevaNotaDialog();
+            }
+        });
+
     }
 
     /**** PrincipalFrame ****/
@@ -53,7 +69,8 @@ public class Vista implements VistaInterface{
      * Método para que la vista muestre su interfaz gráfica
      */
     public void mostrarGUI(){
-        _principalF = new PrincipalFrame();
+
+        _principalF.setLocationRelativeTo(null);
         _principalF.setVisible(true);
     }
 
@@ -61,7 +78,7 @@ public class Vista implements VistaInterface{
 
     /**
      * Método para añadir un nuevo observador de la pulsación del botón nueva
-     * nota
+     * nota para abrir el diálogo correspondiente
      * @param al Observador de la pulsación del botón nueva nota
      */
     public void addNuevaNotaButtonListener(ActionListener al){
@@ -207,6 +224,7 @@ public class Vista implements VistaInterface{
     public void mostrarNuevaNotaDialog(){
 
         _nuevaNotaD = new NuevaNotaDialog();
+        _nuevaNotaD.setLocationRelativeTo(null);
         _nuevaNotaD.setVisible(true);
 
         //listeners
