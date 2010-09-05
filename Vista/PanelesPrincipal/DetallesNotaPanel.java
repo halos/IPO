@@ -11,9 +11,7 @@ import Modelo.CamposNota;
 import Modelo.Destinastarios;
 import Modelo.NombreCamposNota;
 import Modelo.Prioridades;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
 /**
  * Clase para generar y gestionar el panel que muestra los detalles de una nota

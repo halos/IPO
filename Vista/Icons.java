@@ -8,30 +8,6 @@ package Vista;
 public class Icons {
 
     /**
-     * Método para obtener la ruta del icono de añadir un nuevo destinatario
-     * @return Ruta del icono para añadir un nuevo destinatario
-     */
-    public static String getIconAddDest(){
-        return "img/add-dest.png";
-    }
-
-    /**
-     * Método para obtener la ruta del icono de borrar destinatario
-     * @return Ruta del icono para borrar un destinatario
-     */
-    public static String getIconDeleteDest(){
-        return "img/delete-dest.png";
-    }
-
-    /**
-     * Método para obtener la ruta del icono de modificar destinatario
-     * @return Ruta del icono para modificar destinatario
-     */
-    public static String getIconEditDest(){
-        return "img/edit-dest.png";
-    }
-
-    /**
      * Método para obtener la ruta del icono de deshacer
      * @return Ruta del icono para deshacer
      */
