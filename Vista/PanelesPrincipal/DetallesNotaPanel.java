@@ -23,6 +23,8 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
 
     CamposNota _notaMostrada;
 
+    Boolean _editable;
+
     /*---- Métodos ----*/
 
     /**
@@ -30,6 +32,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      */
     public DetallesNotaPanel() {
         initComponents();
+        _editable = false;
     }
 
     /**
@@ -38,20 +41,22 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      * @return Estado de chequedo del <tt>CheckBox</tt> editableCheckBox
      */
     public boolean getEditableStatus(){
-        return _editableCheckBox.isSelected();
+        return _editable;
     }
 
     /**
-     * Método para cambiar el estado de "editable" de los de talles de la nota
-     * @param editable Estado que se quiere establecer a los campos de la nota
+     * Método para cambiar el estado de "_editable" de los de talles de la nota
+     * @param _editable Estado que se quiere establecer a los campos de la nota
      */
     public void setEditableDetallesNota(boolean editable){
 
-        _destinatarioDetallesCB.setEnabled(editable);
-        _prioridadDetallesCB.setEnabled(editable);
-        _fechaDetallesFTF.setEditable(editable);
-        _textoTA.setEditable(editable);
-        _asuntoTextField.setEditable(editable);
+        _editable = editable;
+
+        _destinatarioDetallesCB.setEnabled(_editable);
+        _prioridadDetallesCB.setEnabled(_editable);
+        _fechaDetallesFTF.setEditable(_editable);
+        _textoTA.setEditable(_editable);
+        _asuntoTextField.setEditable(_editable);
 
     }
 
@@ -70,6 +75,9 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      * @param cn Campos para establecer en la nota que se muestra
      */
     public void setCamposNota(CamposNota cn){
+
+        _editable = false;
+        setEditableDetallesNota(_editable);
 
         _notaMostrada = cn;
 
@@ -206,6 +214,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         add(_editableCheckBox, gridBagConstraints);
 
         _destinatarioDetallesCB.setModel(new javax.swing.DefaultComboBoxModel(Modelo.Destinastarios.values()));
+        _destinatarioDetallesCB.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -214,6 +223,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         add(_destinatarioDetallesCB, gridBagConstraints);
 
         _prioridadDetallesCB.setModel(new javax.swing.DefaultComboBoxModel(Modelo.Prioridades.values()));
+        _prioridadDetallesCB.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -252,6 +262,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         jScrollPane3.setPreferredSize(new java.awt.Dimension(162, 77));
 
         _textoTA.setColumns(20);
+        _textoTA.setEditable(false);
         _textoTA.setRows(5);
         _textoTA.setTabSize(4);
         _textoTA.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -269,6 +280,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jScrollPane3, gridBagConstraints);
 
+        _fechaDetallesFTF.setEditable(false);
         _fechaDetallesFTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         _fechaDetallesFTF.setToolTipText(""); // NOI18N
         _fechaDetallesFTF.setPreferredSize(new java.awt.Dimension(90, 18));
@@ -285,6 +297,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(_asuntoLabel, gridBagConstraints);
 
+        _asuntoTextField.setEditable(false);
         _asuntoTextField.setPreferredSize(new java.awt.Dimension(90, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
