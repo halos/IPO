@@ -34,11 +34,14 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
     public ResultadosBusquedaTableModel(){
         
         super();
-        _nombreColumnas = new String[NombreCamposNota.values().length+1];
+        //+1 : Para almacenar la nota
+        //-1 : El campo leída no entra
+        _nombreColumnas = new String[NombreCamposNota.values().length+1-1];
 
         int i = 0;
         for(NombreCamposNota nCN: NombreCamposNota.values()){
-            _nombreColumnas[i++] = nCN.getNombre();
+            if(nCN != NombreCamposNota.LEIDA)
+                _nombreColumnas[i++] = nCN.getNombre();
         }
     }
 

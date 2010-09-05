@@ -7,10 +7,12 @@
 
 package Vista.PanelesPrincipal;
 
+import Modelo.CamposNota;
+import Modelo.NombreCamposNota;
 import Modelo.Nota;
 import Vista.TableModels.ResultadosBusquedaTableModel;
 import java.awt.event.MouseListener;
-import java.util.List;
+import java.util.*;
 import javax.swing.JTable;
 
 /**
@@ -37,6 +39,24 @@ public class ResultadosBusquedaPanel extends javax.swing.JPanel {
         _datosTabla = new ResultadosBusquedaTableModel();
 
         initComponents();
+
+        /************************** Código de prueba **************************/
+        LinkedList<Nota> lln = new LinkedList<Nota>();
+        CamposNota cn = new CamposNota();
+
+        cn.añadirCampo(NombreCamposNota.FECHA, "17/12/1988");
+        cn.añadirCampo(NombreCamposNota.ASUNTO, "Asunteision");
+        cn.añadirCampo(NombreCamposNota.DESTINATARIO, "dest: javier");
+        cn.añadirCampo(NombreCamposNota.LEIDA, new Boolean(false));
+        cn.añadirCampo(NombreCamposNota.TEXTO, "text: implementando");
+        cn.añadirCampo(NombreCamposNota.PRIORIDAD, "prior: Alta");
+
+        Nota n = new Nota(cn);
+
+        lln.add(n);
+        _datosTabla.refrescarDatos(lln);
+
+        /************************ Fin código de prueba ************************/
 
     }
 
