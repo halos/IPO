@@ -19,7 +19,12 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
     /**
      * Nombre de las columnas de las tablas
      */
-    public String[] _nombreColumnas;
+    public String[] _nombreColumnas= {
+        NombreCamposNota.PRIORIDAD.toString(),
+        NombreCamposNota.DESTINATARIO.toString(),
+        NombreCamposNota.ASUNTO.toString(),
+        NombreCamposNota.FECHA.toString(),
+        NombreCamposNota.TEXTO.toString()};
 
     /**
      * Matriz que almacena los datos de la tabla
@@ -34,15 +39,7 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
     public ResultadosBusquedaTableModel(){
         
         super();
-        //+1 : Para almacenar la nota
-        //-1 : El valor de leído no se muestra
-        _nombreColumnas = new String[NombreCamposNota.values().length-1];
 
-        int i = 0;
-        for(NombreCamposNota nCN: NombreCamposNota.values()){
-            if(nCN != NombreCamposNota.LEIDA)
-                _nombreColumnas[i++] = nCN.getNombre();
-        }
     }
 
     /**

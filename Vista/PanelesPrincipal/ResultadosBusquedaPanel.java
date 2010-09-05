@@ -7,10 +7,7 @@
 
 package Vista.PanelesPrincipal;
 
-import Modelo.CamposNota;
-import Modelo.NombreCamposNota;
-import Modelo.Nota;
-import Modelo.Prioridades;
+import Modelo.*;
 import Vista.TableModels.ResultadosBusquedaTableModel;
 import java.awt.event.MouseListener;
 import java.util.*;
