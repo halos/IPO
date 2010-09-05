@@ -38,34 +38,6 @@ public class ResultadosBusquedaPanel extends javax.swing.JPanel {
 
         initComponents();
 
-        /************************** Código de prueba **************************/
-        LinkedList<Nota> lln = new LinkedList<Nota>();
-        CamposNota cn = new CamposNota();
-
-        cn.añadirCampo(NombreCamposNota.FECHA, "17/12/1988");
-        cn.añadirCampo(NombreCamposNota.ASUNTO, "Asunteision");
-        cn.añadirCampo(NombreCamposNota.DESTINATARIO, "dest: javier");
-        cn.añadirCampo(NombreCamposNota.LEIDA, new Boolean(false));
-        cn.añadirCampo(NombreCamposNota.TEXTO, "text: implementando");
-        cn.añadirCampo(NombreCamposNota.PRIORIDAD, "prior: Alta");
-
-        lln.add(new Nota(cn));
-
-        cn = new CamposNota();
-
-        cn.añadirCampo(NombreCamposNota.FECHA, "30/11/1987");
-        cn.añadirCampo(NombreCamposNota.ASUNTO, "Asunt: cnch");
-        cn.añadirCampo(NombreCamposNota.DESTINATARIO, "dest: andres");
-        cn.añadirCampo(NombreCamposNota.LEIDA, new Boolean(true));
-        cn.añadirCampo(NombreCamposNota.TEXTO, "text: implementando");
-        cn.añadirCampo(NombreCamposNota.PRIORIDAD, "urgente");
-
-        lln.add(new Nota(cn));
-
-        _datosTabla.refrescarDatos(lln);
-
-        /************************ Fin código de prueba ************************/
-
     }
 
     /**

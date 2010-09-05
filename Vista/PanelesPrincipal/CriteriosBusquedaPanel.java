@@ -67,6 +67,8 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
         _fechaBusquedaFTF.addKeyListener((KeyListener) al);
         _destinatarioBusquedaCB.addActionListener(al);
         _prioridadBusquedaCB.addActionListener(al);
+
+        al.actionPerformed(null);
     }
 
     /** This method is called from within the constructor to

@@ -23,6 +23,8 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
 
     /*---- Atributos ----*/
 
+    CamposNota _notaMostrada;
+
     /*---- Métodos ----*/
 
     /**
@@ -61,32 +63,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      */
     public CamposNota getCamposNota(){
 
-        CamposNota cn = new CamposNota();
-
-        //FECHA
-        cn.añadirCampo(NombreCamposNota.FECHA, _fechaDetallesFTF);
-
-        //DESTINATARIO
-        cn.añadirCampo(NombreCamposNota.DESTINATARIO,
-                _destinatarioDetallesCB.getItemAt(
-                    _destinatarioDetallesCB.getSelectedIndex()
-                )
-        );
-
-        //PRIORIDAD
-        cn.añadirCampo(NombreCamposNota.PRIORIDAD,
-                _prioridadDetallesCB.getItemAt(
-                    _prioridadDetallesCB.getSelectedIndex()
-                )
-        );
-
-        //TEXTO
-        cn.añadirCampo(NombreCamposNota.TEXTO, _textoTA.getText());
-
-        //ASUNTO
-        cn.añadirCampo(NombreCamposNota.ASUNTO, _asuntoTextField.getText());
-
-        return cn;
+        return _notaMostrada;
 
     }
 
@@ -95,6 +72,8 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      * @param cn Campos para establecer en la nota que se muestra
      */
     public void setCamposNota(CamposNota cn){
+
+        _notaMostrada = cn;
 
         //FECHA
         _fechaDetallesFTF.setText((String) cn.getValueOf(
