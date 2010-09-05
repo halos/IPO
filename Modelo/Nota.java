@@ -17,7 +17,7 @@ public class Nota implements Serializable {
     /**
      * define el campo de la nota.
      */
-    private CamposNota campos;
+    private CamposNota _campos;
 
     /* - Metodos ---------------------------------------*/
 
@@ -26,7 +26,7 @@ public class Nota implements Serializable {
      * @param campos Información para rellenar la nota con los campos necesarios
      */
     public Nota(CamposNota campos) {
-        this.campos = (CamposNota) campos.clone();
+        this._campos = (CamposNota) campos.clone();
     }
 
     /**
@@ -46,7 +46,7 @@ public class Nota implements Serializable {
      * @return boolean. True si coinciden, False en caso contrario
      */
     public boolean coincide(CamposNota criterios){
-        return campos.coincide(criterios);
+        return _campos.coincide(criterios);
     }
 
     /**
@@ -54,7 +54,7 @@ public class Nota implements Serializable {
      * @return Los campos de la nota, recogidos en el atributo campos
      */
     public CamposNota getCamposNota(){
-        return campos;
+        return _campos;
     }
 
     /**

@@ -21,20 +21,20 @@ public class PilaDeshacer {
      * Singleton que permite un acceso sencillo a la pila y que garantiza
      * que solo hay una instancia de esta clase.
      */
-    private static PilaDeshacer singleton = new PilaDeshacer();
+    private static PilaDeshacer _singleton = new PilaDeshacer();
 
     /* - Atributos --------------------------------------------------------- */
 
     /**
      * La propia pila de ordenes para deshacer/rehacer.
      */
-    private UndoManager stack = new UndoManager();
+    private UndoManager _stack = new UndoManager();
 
     /**
      * Lista de observadores interesados en ser notificados cada vez que se
      * produzca un cambio en la pila.
      */
-    private List<ObservadorPilaDeshacer> stackListeners =
+    private List<ObservadorPilaDeshacer> _stackListeners =
                                        new ArrayList<ObservadorPilaDeshacer>();
     
     /* - Metodos ----------------------------------------------------------- */
@@ -48,8 +48,8 @@ public class PilaDeshacer {
      */
     public static void addEdit(UndoableEdit edit) {
 
-        singleton.stack.addEdit(edit);
-        singleton.notificarPilaDeshacerCambiada();
+        _singleton._stack.addEdit(edit);
+        _singleton.notificarPilaDeshacerCambiada();
     }
 
     /**
@@ -61,8 +61,8 @@ public class PilaDeshacer {
      */
     public static void undo() {
 
-        singleton.stack.undo();
-        singleton.notificarPilaDeshacerCambiada();
+        _singleton._stack.undo();
+        _singleton.notificarPilaDeshacerCambiada();
     }
 
     /**
@@ -74,8 +74,8 @@ public class PilaDeshacer {
      */
     public static void redo() {
 
-        singleton.stack.redo();
-        singleton.notificarPilaDeshacerCambiada();
+        _singleton._stack.redo();
+        _singleton.notificarPilaDeshacerCambiada();
     }
 
     /**
@@ -87,7 +87,7 @@ public class PilaDeshacer {
      */
     private void notificarPilaDeshacerCambiada() {
 
-        for (ObservadorPilaDeshacer l:stackListeners) {
+        for (ObservadorPilaDeshacer l:_stackListeners) {
 
             l.pilaDeshacerCambiada();
         }
@@ -102,7 +102,7 @@ public class PilaDeshacer {
      */
     public static void registrarObservadorPilaDeshacer(ObservadorPilaDeshacer listener) {
 
-        singleton.stackListeners.add(listener);
+        _singleton._stackListeners.add(listener);
         listener.pilaDeshacerCambiada();
     }
 
@@ -114,7 +114,7 @@ public class PilaDeshacer {
      */
     public static void eliminarObservadorPilaDeshacer(ObservadorPilaDeshacer listener) {
 
-        singleton.stackListeners.remove(listener);
+        _singleton._stackListeners.remove(listener);
     }
 
     /**
@@ -124,7 +124,7 @@ public class PilaDeshacer {
      */
     public static boolean puedeDeshacer() {
 
-        return singleton.stack.canUndo();
+        return _singleton._stack.canUndo();
     }
 
     /**
@@ -134,7 +134,7 @@ public class PilaDeshacer {
      */
     public static boolean puedeRehacer() {
 
-        return singleton.stack.canRedo();
+        return _singleton._stack.canRedo();
     }
 
     /**
@@ -149,7 +149,7 @@ public class PilaDeshacer {
      */
     public static String nombreDeshacer() {
 
-        return singleton.stack.getUndoPresentationName();
+        return _singleton._stack.getUndoPresentationName();
     }
     
     /**
@@ -164,7 +164,7 @@ public class PilaDeshacer {
      */
     public static String nombreRehacer() {
         
-        return singleton.stack.getRedoPresentationName();
+        return _singleton._stack.getRedoPresentationName();
     }
 
 }

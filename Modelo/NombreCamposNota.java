@@ -39,7 +39,7 @@ public enum NombreCamposNota {
 
     /* - Atributos -----------------------------------*/
 
-    private String nombre;
+    private String _nombre;
 
 
 
@@ -51,7 +51,7 @@ public enum NombreCamposNota {
      * @param nombre Nombre del campo enumerado
      */
     private NombreCamposNota(String nombre) {
-         this.nombre=nombre;
+         this._nombre=nombre;
     }
 
     /**
@@ -59,7 +59,7 @@ public enum NombreCamposNota {
      */
     @Override
     public String toString() {
-        return nombre;
+        return _nombre;
     }
 
 

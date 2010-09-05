@@ -21,32 +21,32 @@ public class OrdenModificarNota extends AbstractUndoableEdit {
     /**
      * Receptor de la orden. Modelo de la aplicación
      */
-    private ModeloInterface receptor;
+    private ModeloInterface _receptor;
 
     /**
      * Emisor de la orden. Vista de la aplicación
      */
-    private VistaInterface emisor;
+    private VistaInterface _emisor;
 
     /**
      * Controlador de la aplicación. A él se le informa de los cambios
      */
-    private ControladorInterface controlador;
+    private ControladorInterface _controlador;
 
     /**
      * Referencia a la nota a modificar
      */
-    private Nota notaAModificar;
+    private Nota _notaAModificar;
 
     /**
      * Campos de la nota que serán modificados
      */
-    private CamposNota camposModificados;
+    private CamposNota _camposModificados;
 
     /**
      * Campos de la nota antes del cambio, por si hubiera que deshacer.
      */
-    private CamposNota camposSinModificar;
+    private CamposNota _camposSinModificar;
 
 
     /* - Métodos ------------------------------------------------------*/
@@ -54,12 +54,12 @@ public class OrdenModificarNota extends AbstractUndoableEdit {
     public OrdenModificarNota(ModeloInterface aReceptor, VistaInterface aEmisor,
             ControladorInterface aControlador, Nota aNotaAModificar,
             CamposNota aCamposModificados){
-        receptor=aReceptor;
-        emisor=aEmisor;
-        controlador=aControlador;
-        notaAModificar=aNotaAModificar;
-        camposModificados=aCamposModificados;
-        camposSinModificar= (CamposNota)aNotaAModificar.getCamposNota().clone();
+        _receptor=aReceptor;
+        _emisor=aEmisor;
+        _controlador=aControlador;
+        _notaAModificar=aNotaAModificar;
+        _camposModificados=aCamposModificados;
+        _camposSinModificar= (CamposNota)aNotaAModificar.getCamposNota().clone();
     }
 
     /**
@@ -69,7 +69,7 @@ public class OrdenModificarNota extends AbstractUndoableEdit {
      * Una vez hecho se añade a la pila de órdenes
      */
     public void ejecutar(){
-        receptor.ModificarNota(camposModificados, notaAModificar);
+        _receptor.ModificarNota(_camposModificados, _notaAModificar);
         PilaDeshacer.addEdit(this);
     }
 
@@ -82,8 +82,8 @@ public class OrdenModificarNota extends AbstractUndoableEdit {
     @Override
     public void undo(){
         super.undo();
-        receptor.ModificarNota(camposSinModificar, notaAModificar);
-        controlador.busquedaSolicitada();
+        _receptor.ModificarNota(_camposSinModificar, _notaAModificar);
+        _controlador.busquedaSolicitada();
     }
 
     /**
@@ -95,8 +95,8 @@ public class OrdenModificarNota extends AbstractUndoableEdit {
     @Override
     public void redo(){
         super.redo();
-        receptor.ModificarNota(camposModificados, notaAModificar);
-        controlador.busquedaSolicitada();
+        _receptor.ModificarNota(_camposModificados, _notaAModificar);
+        _controlador.busquedaSolicitada();
     }
 
     /**

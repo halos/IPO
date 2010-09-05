@@ -16,7 +16,7 @@ public class Modelo implements ModeloInterface {
 
     /* - Atributos ----------------------------------------------------------- */
 
-    private List<Nota> notas;
+    private List<Nota> _notas;
 
 
 
@@ -27,7 +27,7 @@ public class Modelo implements ModeloInterface {
      */
     public Modelo() throws IOException, ClassNotFoundException {
         File fichero=new File("notas.fua");
-        notas = new LinkedList<Nota>();
+        _notas = new LinkedList<Nota>();
 
         if (fichero.exists()){
             ObjectInputStream ois= new ObjectInputStream(new FileInputStream("notas.fua"));
@@ -35,7 +35,7 @@ public class Modelo implements ModeloInterface {
                 Object aux;
                 while ((aux=ois.readObject())!=null){
                     if (aux instanceof Nota){
-                        notas.add((Nota) aux);
+                        _notas.add((Nota) aux);
                     }
                 }
             }catch(java.io.EOFException eof){}
@@ -50,12 +50,12 @@ public class Modelo implements ModeloInterface {
      * @param nota la nueva nota a ser creada
      */
     public void nuevaNota(Nota nota) {
-        notas.add(nota);
+        _notas.add(nota);
     }
 
     public List<Nota> buscar(CamposNota criterios){
         List<Nota> res = new LinkedList<Nota>();
-        for(Nota m: notas){
+        for(Nota m: _notas){
             if (m.coincide(criterios))
                 res.add(m);   
         }
@@ -66,12 +66,12 @@ public class Modelo implements ModeloInterface {
      * Elimina la última nota añadida.
      */
     public void eliminarUltimaNota() {
-        notas.remove(notas.size()-1);
+        _notas.remove(_notas.size()-1);
     }
 
     public void guardar() throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("notas.fua"));
-        for (Nota n: notas){
+        for (Nota n: _notas){
             oos.writeObject(n);
         }
         oos.close();

@@ -24,25 +24,25 @@ public class Controlador implements ControladorInterface {
     /**
      * Modelo de la aplicacion. Sobre este modelo trabaja el controlador.
      */
-    private ModeloInterface modelo;
+    private ModeloInterface _modelo;
 
     /**
      * Vista de la aplicacion. Sobre esta vista trabaja el controlador.
      */
-    private VistaInterface vista;
+    private VistaInterface _vista;
 
     /*
      * Lista de notas, que son el resultado de la busqueda con los criterios actuales.
      *
      */
-    private List<Nota> resBusqueda;
+    private List<Nota> _resBusqueda;
 
     /*
      * Lista de observadores del controlador.
      *
      */
 
-    private List<ObservadorResultadoBusqueda> observadores;
+    private List<ObservadorResultadoBusqueda> _observadores;
 
 
 
@@ -53,10 +53,10 @@ public class Controlador implements ControladorInterface {
      * @param modelo Instancia del modelo sobre el que va a trabajar el controlador
      */
     public Controlador(ModeloInterface modelo) {
-        observadores=new ArrayList<ObservadorResultadoBusqueda>();
-        this.modelo = modelo;
-        vista = new Vista(modelo, this);
-        vista.mostrarGUI();
+        _observadores=new ArrayList<ObservadorResultadoBusqueda>();
+        this._modelo = modelo;
+        _vista = new Vista(modelo, this);
+        _vista.mostrarGUI();
     }
 
     /**
@@ -64,7 +64,7 @@ public class Controlador implements ControladorInterface {
      * una vez realizada notifica a los observadores que ha habido cambios
      */
     public void busquedaSolicitada() {
-        resBusqueda=modelo.buscar(vista.getCriteriosBusqueda());
+        _resBusqueda=_modelo.buscar(_vista.getCriteriosBusqueda());
         notificarResultadoBusquedaCambiado();
     }
 
@@ -74,7 +74,7 @@ public class Controlador implements ControladorInterface {
      * @param observador Observador a añadir a la lista
      */
     public void registrarObservadorResultadoBusqueda(ObservadorResultadoBusqueda observador) {
-        observadores.add(observador);
+        _observadores.add(observador);
         observador.resultadoBusquedaCambiado();
     }
 
@@ -84,7 +84,7 @@ public class Controlador implements ControladorInterface {
      * @param observador Observador a eliminar
      */
     public void eliminarObservadorResultadoBusqueda(ObservadorResultadoBusqueda observador) {
-        observadores.remove(observador);
+        _observadores.remove(observador);
     }
 
     /**
@@ -93,7 +93,7 @@ public class Controlador implements ControladorInterface {
      * o se modifica una nota de la lista
      */
     private void notificarResultadoBusquedaCambiado(){
-        for (ObservadorResultadoBusqueda o: observadores)
+        for (ObservadorResultadoBusqueda o: _observadores)
             o.resultadoBusquedaCambiado();
     }
 
@@ -101,8 +101,8 @@ public class Controlador implements ControladorInterface {
      * Crea una orden para introducir una nueva nota en el sistema
      */
     public void nuevaNota() {
-        CamposNota cNuevaNota = vista.getCamposNotaNuevaNota();
-        (new OrdenNuevaNota(modelo, this, cNuevaNota)).ejecutar();
+        CamposNota cNuevaNota = _vista.getCamposNotaNuevaNota();
+        (new OrdenNuevaNota(_modelo, this, cNuevaNota)).ejecutar();
         this.busquedaSolicitada();
     }
 
@@ -111,8 +111,8 @@ public class Controlador implements ControladorInterface {
      * @param nota la nota que será modificada
      */
     public void modificarNota(Nota nota) {
-        CamposNota cNotaModificados = vista.getCamposNotaDetalles();
-        (new OrdenModificarNota(modelo, vista, this, nota, cNotaModificados)).ejecutar();
+        CamposNota cNotaModificados = _vista.getCamposNotaDetalles();
+        (new OrdenModificarNota(_modelo, _vista, this, nota, cNotaModificados)).ejecutar();
         this.busquedaSolicitada();
     }
 
@@ -122,7 +122,7 @@ public class Controlador implements ControladorInterface {
      * @param nota Nota a marcar como leida
      */
     public void marcarLeida(Nota nota) {
-        (new OrdenMarcarLeida(modelo, vista, this, nota)).ejecutar();
+        (new OrdenMarcarLeida(_modelo, _vista, this, nota)).ejecutar();
         this.busquedaSolicitada();
     }
 
@@ -132,7 +132,7 @@ public class Controlador implements ControladorInterface {
      * @param nota Nota a marcar como no leida
      */
     public void marcarNoLeida(Nota nota) {
-        (new OrdenMarcarNoLeida(modelo, vista, this, nota)).ejecutar();
+        (new OrdenMarcarNoLeida(_modelo, _vista, this, nota)).ejecutar();
         this.busquedaSolicitada();
     }
 
@@ -141,7 +141,7 @@ public class Controlador implements ControladorInterface {
      * @return Lista de notas que resultan de la búsqueda
      */
     public List<Nota> getResBusqueda() {
-        return resBusqueda;
+        return _resBusqueda;
     }
     
     

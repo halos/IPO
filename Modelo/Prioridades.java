@@ -22,32 +22,32 @@ public enum Prioridades {
     /**
      * Nombre que verá el usuario del nivel de proridad
      */
-    String nombre;
+    String _nombre;
 
     /*/
      * Valor de prioridad de una nota
      * Cuanto más alto más prioridad tiene la nota
      */
-    int valor;
+    int _valor;
 
     /* Métodos */
 
     private Prioridades(String nombre, int valor) {
-        this.nombre = nombre;
-        this.valor = valor;
+        this._nombre = nombre;
+        this._valor = valor;
     }
 
     public String getNombre() {
-        return this.nombre;
+        return this._nombre;
     }
 
     public int getValor() {
-        return valor;
+        return _valor;
     }
 
     @Override
     public String toString() {
-        return this.nombre;
+        return this._nombre;
     }
 
     

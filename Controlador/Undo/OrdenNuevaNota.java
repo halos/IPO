@@ -21,17 +21,17 @@ public class OrdenNuevaNota extends AbstractUndoableEdit {
     /**
      * receptor de la orden. Modelo de la aplicación
      */
-    private ModeloInterface receptor;
+    private ModeloInterface _receptor;
 
     /**
      * Controlador de la aplicación. Recibe notificación de los cambios
      */
-    private ControladorInterface controlador;
+    private ControladorInterface _controlador;
 
     /**
      * Referencia a la nota creada. Se guarda por si fuera necesario rehacer
      */
-    private Nota notaCreada;
+    private Nota _notaCreada;
 
     /* - Métodos ---------------------------------------------------------*/
 
@@ -45,9 +45,9 @@ public class OrdenNuevaNota extends AbstractUndoableEdit {
      */
     public OrdenNuevaNota (ModeloInterface aReceptor,
             ControladorInterface aControlador, CamposNota cNuevaNota){
-        receptor=aReceptor;
-        notaCreada=new Nota(cNuevaNota);
-        controlador= aControlador;
+        _receptor=aReceptor;
+        _notaCreada=new Nota(cNuevaNota);
+        _controlador= aControlador;
     }
 
     /**
@@ -57,7 +57,7 @@ public class OrdenNuevaNota extends AbstractUndoableEdit {
      * Una vez añadida, añade la orden a la pila de órdenes
      */
     public void ejecutar(){
-        receptor.nuevaNota(notaCreada);
+        _receptor.nuevaNota(_notaCreada);
         PilaDeshacer.addEdit(this);
     }
 
@@ -70,8 +70,8 @@ public class OrdenNuevaNota extends AbstractUndoableEdit {
     @Override
     public void undo(){
         super.undo();
-        receptor.eliminarUltimaNota();
-        controlador.busquedaSolicitada();
+        _receptor.eliminarUltimaNota();
+        _controlador.busquedaSolicitada();
     }
 
     /**
@@ -83,8 +83,8 @@ public class OrdenNuevaNota extends AbstractUndoableEdit {
     @Override
     public void redo(){
         super.redo();
-        receptor.nuevaNota(notaCreada);
-        controlador.busquedaSolicitada();
+        _receptor.nuevaNota(_notaCreada);
+        _controlador.busquedaSolicitada();
     }
 
     /**

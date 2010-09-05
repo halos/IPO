@@ -28,7 +28,7 @@ public enum Destinatario {
     /**
      * nombre visibie que se le da a la constante
      */
-    private String nombre;
+    private String _nombre;
 
 
     /* MÉTODOS ----------------------------------------------------------------- */
@@ -40,7 +40,7 @@ public enum Destinatario {
  * @param sueldo
  */
     private Destinatario(String nombre) {
-        this.nombre = nombre;
+        this._nombre = nombre;
     }
 
     /**
@@ -49,7 +49,7 @@ public enum Destinatario {
     @Override
     public String toString() {
 
-        return nombre;
+        return _nombre;
     }
 
 }

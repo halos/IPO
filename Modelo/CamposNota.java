@@ -18,7 +18,7 @@ public class CamposNota implements Serializable {
     /**
      * Conjunto de atributos de la nota
      */
-    private Map<NombreCamposNota, Object> mapa;
+    private Map<NombreCamposNota, Object> _mapa;
 
     /* - Métodos -----------------------*/
 
@@ -28,7 +28,7 @@ public class CamposNota implements Serializable {
      * Crea un mapa de Object cuya clave es el nombre de los campos
      */
     public CamposNota() {
-        mapa = new LinkedHashMap<NombreCamposNota, Object>();
+        _mapa = new LinkedHashMap<NombreCamposNota, Object>();
     }
 
     /**
@@ -38,8 +38,8 @@ public class CamposNota implements Serializable {
      * @param value valor del campo a insertar
      */
     public void añadirCampo(NombreCamposNota key, Object value){
-        if (!mapa.containsKey(key)){
-            mapa.put(key, value);
+        if (!_mapa.containsKey(key)){
+            _mapa.put(key, value);
         }
     }
 
@@ -49,8 +49,8 @@ public class CamposNota implements Serializable {
      * @param value Nuevo valor deseado para el campo
      */
     public void modificarCampo(NombreCamposNota key, Object value){
-        if (mapa.containsKey(key))
-            mapa.put(key, value);
+        if (_mapa.containsKey(key))
+            _mapa.put(key, value);
     }
 
     /**
@@ -59,14 +59,14 @@ public class CamposNota implements Serializable {
      * @return Objeto de la clase CamposNota cuya clave es key
      */
     public Object getValueOf(NombreCamposNota key){
-        return mapa.get(key);
+        return _mapa.get(key);
     }
 
     /**
      * @return El nombre de los campos de una nota
      */
     public Set<NombreCamposNota>getKeys(){
-        return mapa.keySet();
+        return _mapa.keySet();
     }
 
     /**
