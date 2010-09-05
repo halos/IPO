@@ -30,7 +30,12 @@ public enum NombreCamposNota {
     /**
      * Contenido de la nota
      */
-    TEXTO("Texto");
+    TEXTO("Texto"),
+
+    /**
+     * Atributo para indicar si el ususario ha leído la nota
+     */
+    LEIDA("Leída");
 
     /* - Atributos -----------------------------------*/
 

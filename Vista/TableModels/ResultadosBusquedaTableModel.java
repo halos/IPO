@@ -137,6 +137,7 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
      */
     public void refrescarDatos(List<Nota> datos){
 
+        Boolean leida;
         _datosTabla=new Object[datos.size()][];
 
         //Reserva memoria para todas las filas
@@ -149,12 +150,21 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
         for (Nota n: datos){
 
             CamposNota c = n.getCamposNota();
+            leida = (Boolean) c.getValueOf(NombreCamposNota.LEIDA);
 
             //para todos los campos de la nota
             int columna=0;
+            String texto;
 
             for (NombreCamposNota m: c.getKeys()){
-                _datosTabla[fila][columna++]=n;
+                if(m != NombreCamposNota.LEIDA){
+                    texto = c.getValueOf(m).toString();
+
+                    if(!leida)
+                        texto = "<html><b>"+texto+"</b></html>";
+
+                    _datosTabla[fila][columna++]= texto;
+                }
             }
 
             fila++;
