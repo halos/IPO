@@ -9,6 +9,7 @@ package Vista.PanelesPrincipal;
 import Modelo.CamposNota;
 import Modelo.NombreCamposNota;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -62,9 +63,35 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
      * @param al Listener que será notificado al cambiar algún criterio de
      * buśqueda
      */
-    public void addCriteriosBusquedaCambiadosListener(ActionListener al){
-        _textoBusquedaTF.addKeyListener((KeyListener) al);
-        _fechaBusquedaFTF.addKeyListener((KeyListener) al);
+    public void addCriteriosBusquedaCambiadosListener(final ActionListener al){
+        _textoBusquedaTF.addKeyListener(new KeyListener() {
+
+            public void keyTyped(KeyEvent e) {
+                al.actionPerformed(null);
+            }
+
+            public void keyPressed(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void keyReleased(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
+        _fechaBusquedaFTF.addKeyListener(new KeyListener() {
+
+            public void keyTyped(KeyEvent e) {
+                al.actionPerformed(null);
+            }
+
+            public void keyPressed(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void keyReleased(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
         _destinatarioBusquedaCB.addActionListener(al);
         _prioridadBusquedaCB.addActionListener(al);
 

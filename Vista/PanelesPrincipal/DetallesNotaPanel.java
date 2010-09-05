@@ -124,12 +124,51 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      * Método para añadir un listener cuando la nota cambie
      * @param al Listener que es notificado al cambiar la nota
      */
-    public void addNotaCambiadaListener(ActionListener al){
+    public void addNotaCambiadaListener(final ActionListener al){
         _destinatarioDetallesCB.addActionListener(al);
         _prioridadDetallesCB.addActionListener(al);
-        _asuntoTextField.addKeyListener((KeyListener) al);
-        _fechaDetallesFTF.addKeyListener((KeyListener) al);
-        _textoTA.addKeyListener((KeyListener) al);
+        _asuntoTextField.addKeyListener(new KeyListener() {
+
+            public void keyTyped(KeyEvent e) {
+                al.actionPerformed(null);
+            }
+
+            public void keyPressed(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void keyReleased(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
+        _fechaDetallesFTF.addKeyListener(new KeyListener() {
+
+            public void keyTyped(KeyEvent e) {
+                al.actionPerformed(null);
+            }
+
+            public void keyPressed(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void keyReleased(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
+        _textoTA.addKeyListener(new KeyListener() {
+
+            public void keyTyped(KeyEvent e) {
+                al.actionPerformed(null);
+            }
+
+            public void keyPressed(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void keyReleased(KeyEvent e) {
+//                throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
     }
 
     /** This method is called from within the constructor to

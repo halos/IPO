@@ -48,17 +48,27 @@ public class Vista implements VistaInterface{
 
         _principalF = new PrincipalFrame();
 
-        //-------------------------------------
-        this.mostrarGUI();
-        //-------------------------------------
-
-
         _principalF.addNuevaNotaButtonListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 mostrarNuevaNotaDialog();
             }
         });
+
+        //------------Código de prueba-------------------------
+
+        addNotaCambiadaListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Algo ha cambiado");
+            }
+        });
+
+        this.mostrarGUI();
+        //-----------------------------------------------------
+
+
+        
 
     }
 
@@ -178,7 +188,8 @@ public class Vista implements VistaInterface{
     }
 
     /**
-     * Método para añadir un listener cuando la nota cambie
+     * Método para añadir un listener cuando la nota vista en los detalles
+     * cambie
      * @param al Listener que es notificado al cambiar la nota
      */
     public void addNotaCambiadaListener(ActionListener al){
