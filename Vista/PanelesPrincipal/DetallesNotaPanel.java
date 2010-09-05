@@ -8,7 +8,7 @@
 package Vista.PanelesPrincipal;
 
 import Modelo.CamposNota;
-import Modelo.Destinastarios;
+import Modelo.Destinatario;
 import Modelo.NombreCamposNota;
 import Modelo.Prioridades;
 import java.awt.event.*;
@@ -86,10 +86,10 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
                 NombreCamposNota.FECHA));
         
         //TEXTO
-        _textoTA.setText((String) cn.getValueOf(NombreCamposNota.TEXTO));
+        _textoTA.setText((String) cn.getValueOf(NombreCamposNota.CUERPO));
 
         //DESTINATARIO
-        Destinastarios d = (Destinastarios) cn.getValueOf(
+        Destinatario d = (Destinatario) cn.getValueOf(
                 NombreCamposNota.DESTINATARIO);
 
         for(int i=0;i<_destinatarioDetallesCB.getItemCount();i++)
@@ -213,7 +213,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 5, 5, 5);
         add(_editableCheckBox, gridBagConstraints);
 
-        _destinatarioDetallesCB.setModel(new javax.swing.DefaultComboBoxModel(Modelo.Destinastarios.values()));
+        _destinatarioDetallesCB.setModel(new javax.swing.DefaultComboBoxModel(Modelo.Destinatario.values()));
         _destinatarioDetallesCB.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

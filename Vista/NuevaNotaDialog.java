@@ -108,7 +108,7 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         getContentPane().add(_asuntoLabel, gridBagConstraints);
 
-        _destinatarioCB.setModel(new javax.swing.DefaultComboBoxModel(Modelo.Destinastarios.values()));
+        _destinatarioCB.setModel(new javax.swing.DefaultComboBoxModel(Modelo.Destinatario.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;

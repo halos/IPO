@@ -24,7 +24,7 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
         NombreCamposNota.DESTINATARIO.toString(),
         NombreCamposNota.ASUNTO.toString(),
         NombreCamposNota.FECHA.toString(),
-        NombreCamposNota.TEXTO.toString()};
+        NombreCamposNota.CUERPO.toString()};
 
     /**
      * Matriz que almacena los datos de la tabla
@@ -158,7 +158,7 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
             for (NombreCamposNota m: c.getKeys()){
                 //buscar su columna
                 for (int columna = 0; columna < _nombreColumnas.length; columna++) {
-                    if(getColumnName(columna).equals(m.getNombre())){
+                    if(getColumnName(columna).equals(m.toString())){
                         texto = c.getValueOf(m).toString();
 
                         if(!leida)

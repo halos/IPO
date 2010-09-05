@@ -8,63 +8,57 @@ package Modelo;
 public enum NombreCamposNota {
 
     /**
-     * Nombre del campo que contiene a quién va dirigida la nota
-     */
-    DESTINATARIO ("Destinatario"),
-    
-    /**
-     * Nombre del campo que contiene el una breve descripción de la nota
-     */
-    ASUNTO ("Asunto"),
-
-    /**
-     * Nombre del campo que contiene la prioridad de la nota
+     * Nombre del campo que declara si una nota es urgente o no
      */
     PRIORIDAD ("Prioridad"),
 
     /**
-     * Nombre del campo que contiene la fecha en que fue creada la nota
+     * Nombre del campo que contiene a quién va dirigida la nota
      */
-    FECHA("Fecha"),
+    DESTINATARIO ("Destinatario"),
 
     /**
-     * Contenido de la nota
+     * Nombre dele campo que contiene el una breve descripción de la nota
      */
-    TEXTO("Texto"),
+    ASUNTO ("Asunto"),
 
     /**
-     * Atributo para indicar si el ususario ha leído la nota
+     * Nombre del campo que contiene la fecha de recepción de la nota
      */
-    LEIDA("Leída");
+    FECHA ("Fecha"),
+
+    /**
+     * Nombre del campo que contiene el cuerpo principal de la nota
+     */
+    CUERPO ("Cuerpo"),
+
+    /**
+     * Nombre del campo que indica si una nota está leída o no
+     */
+    LEIDA ("Leida");
 
     /* - Atributos -----------------------------------*/
 
-
-
-     String nombre;
+    private String nombre;
 
 
 
 
     /* - Métodos ----------------------------------------*/
 
-     private NombreCamposNota(String nombre) {
+    /**
+     * Constructor de la clase
+     * @param nombre Nombre del campo enumerado
+     */
+    private NombreCamposNota(String nombre) {
          this.nombre=nombre;
     }
 
     /**
-     * Método que devuelve el nombre de las etiquetas
+     * @return Nombre del campo que hace la llamada.
      */
     @Override
     public String toString() {
-        return nombre;
-    }
-
-    /**
-     * Método para obeter el nombre del campo
-     * @return Nombre del campo
-     */
-    public String getNombre() {
         return nombre;
     }
 

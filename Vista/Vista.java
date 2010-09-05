@@ -55,6 +55,12 @@ public class Vista implements VistaInterface{
             }
         });
 
+        //-------------------
+
+        mostrarGUI();
+
+        //-------------------
+
     }
 
     /**** PrincipalFrame ****/

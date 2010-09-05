@@ -51,7 +51,7 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
         criteriosCN.añadirCampo(NombreCamposNota.PRIORIDAD, _prioridadBusquedaCB.getSelectedItem());
         criteriosCN.añadirCampo(NombreCamposNota.FECHA, _fechaBusquedaFTF.getText());
         criteriosCN.añadirCampo(NombreCamposNota.ASUNTO, _textoBusquedaTF.getText());
-        criteriosCN.añadirCampo(NombreCamposNota.TEXTO, _textoBusquedaTF.getText());
+        criteriosCN.añadirCampo(NombreCamposNota.CUERPO, _textoBusquedaTF.getText());
 
         return criteriosCN;
 
@@ -128,7 +128,7 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         add(_destinatarioLabel, gridBagConstraints);
 
-        _destinatarioBusquedaCB.setModel(new javax.swing.DefaultComboBoxModel(Modelo.Destinastarios.values()));
+        _destinatarioBusquedaCB.setModel(new javax.swing.DefaultComboBoxModel(Modelo.Destinatario.values()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         add(_destinatarioBusquedaCB, gridBagConstraints);
