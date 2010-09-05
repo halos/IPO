@@ -150,12 +150,6 @@ public interface VistaInterface {
     public CamposNota getCamposNotaNuevaNota();
 
     /**
-     * Método para añadir el listener para el cerrado del diálogo
-     * @param al Listener al que avisar al cerrar el diálogo
-     */
-    public void addCloseListener(ActionListener al);
-
-    /**
      * Método para añadir un nuevo observador al pulsado del botón de añadir una
      * nueva nota
      * @param al Listener al que avisar al pulsar el botón de nueva nota

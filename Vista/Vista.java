@@ -237,14 +237,6 @@ public class Vista implements VistaInterface{
     }
 
     /**
-     * Método para añadir el listener para el cerrado del diálogo
-     * @param al Listener al que avisar al cerrar el diálogo
-     */
-    public void addCloseListener(ActionListener al){
-        _nuevaNotaD.addCloseListener(al);
-    }
-
-    /**
      * Método para añadir un nuevo observador al pulsado del botón de añadir una
      * nueva nota
      * @param al Listener al que avisar al pulsar el botón de nueva nota
