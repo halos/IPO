@@ -47,8 +47,8 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      */
     public void setEditableDetallesNota(boolean editable){
 
-        _destinatarioDetallesCB.setEditable(editable);
-        _prioridadDetallesCB.setEditable(editable);
+        _destinatarioDetallesCB.setEnabled(editable);
+        _prioridadDetallesCB.setEnabled(editable);
         _fechaDetallesFTF.setEditable(editable);
         _textoTA.setEditable(editable);
         _asuntoTextField.setEditable(editable);

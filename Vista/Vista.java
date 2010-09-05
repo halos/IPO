@@ -57,10 +57,10 @@ public class Vista implements VistaInterface{
 
         //------------Código de prueba-------------------------
 
-        addNotaCambiadaListener(new ActionListener() {
+        addEditableStateChangedListener(new ItemListener() {
 
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Algo ha cambiado");
+            public void itemStateChanged(ItemEvent e) {
+                setEditableDetallesNota(!getEditableStatus());
             }
         });
 
