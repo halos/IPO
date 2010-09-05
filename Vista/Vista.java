@@ -55,21 +55,6 @@ public class Vista implements VistaInterface{
             }
         });
 
-        //------------Código de prueba-------------------------
-
-        addEditableStateChangedListener(new ItemListener() {
-
-            public void itemStateChanged(ItemEvent e) {
-                setEditableDetallesNota(!getEditableStatus());
-            }
-        });
-
-        this.mostrarGUI();
-        //-----------------------------------------------------
-
-
-        
-
     }
 
     /**** PrincipalFrame ****/
