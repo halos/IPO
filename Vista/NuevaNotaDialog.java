@@ -8,7 +8,9 @@
 package Vista;
 
 import Modelo.CamposNota;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JDialog;
 
 /**
  * clase que se encarga de generar y gestionar el diálogo para crear una nueva

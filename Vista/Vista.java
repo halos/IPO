@@ -213,15 +213,14 @@ public class Vista implements VistaInterface{
         _nuevaNotaD.addCloseListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                _nuevaNotaD.setVisible(false);
-                _nuevaNotaD=null;
+                _nuevaNotaD.dispose();
             }
         });
 
         _nuevaNotaD.addNuevaNotaListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Avisar controlador.");
+                _nuevaNotaD.setVisible(false);
             }
         });
 
