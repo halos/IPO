@@ -9,6 +9,7 @@ package vista.PanelesPrincipal;
 
 import controlador.undo.ObservadorPilaDeshacer;
 import controlador.undo.PilaDeshacer;
+import java.awt.event.ActionEvent;
 import vista.Icons;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -36,6 +37,20 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
                 pilaDeshacerCambiada();
             }
         });
+
+        _undoButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+               PilaDeshacer.undo();
+            }
+        });
+
+        _redoButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+               PilaDeshacer.redo();
+            }
+        });
     }
 
     /**
@@ -48,26 +63,13 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
     }
 
     /**
-     * Método para añadir un nuevo observador de la pulsación del botón deshacer
-     * @param al Observador de la pulsación del botón deshacer
-     */
-    public void addUndoButtonListener(ActionListener al){
-        _undoButton.addActionListener(al);
-    }
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón rehacer
-     * @param al Observador de la pulsación del botón rehacer
-     */
-    public void addRedoButtonListener(ActionListener al){
-        _redoButton.addActionListener(al);
-    }
-
-    /**
      * Método que se ejecuta cuando la pila de deshacer se ha modificado
      */
     private void pilaDeshacerCambiada(){
         _undoButton.setEnabled(PilaDeshacer.puedeDeshacer());
+        _undoButton.setToolTipText(PilaDeshacer.nombreDeshacer());
+
+        _redoButton.setToolTipText(PilaDeshacer.nombreRehacer());
         _redoButton.setEnabled(PilaDeshacer.puedeRehacer());
     }
 

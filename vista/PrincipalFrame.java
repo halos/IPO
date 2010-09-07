@@ -53,22 +53,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
         _botSup.addNuevaNotaButtonListener(al);
     }
 
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón deshacer
-     * @param al Observador de la pulsación del botón deshacer
-     */
-    public void addUndoButtonListener(ActionListener al){
-        _botSup.addUndoButtonListener(al);
-    }
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón rehacer
-     * @param al Observador de la pulsación del botón rehacer
-     */
-    public void addRedoButtonListener(ActionListener al){
-        _botSup.addRedoButtonListener(al);
-    }
-
     //</editor-fold>
 
     /** Métodos de _critBusq **/

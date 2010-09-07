@@ -29,18 +29,6 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
     /*---- Métodos ----*/
 
     /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-
-//        new PrincipalFrame().setVisible(true);
-//        new EliminarDestinatarioDialog().setVisible(true);
-//        new ModificarDestinatarioDialog().setVisible(true);
-        new Vista(null, null);
-
-    }
-
-    /**
      * Constructor de ls vista
      * @param modelo Modelo de la aplicación
      * @param controlador Controlador de la aplicación
@@ -59,6 +47,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        //avisar al controlador de que se ha creado una nueva nota
         _nuevaNotaD.addNuevaNotaListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -66,6 +55,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        //para guardar los cambios el cerrar la ventana
         _principalF.addWindowListener(new WindowAdapter() {
 
             @Override
@@ -102,31 +92,6 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
     }
 
     /** Métodos de _botSup **/
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón nueva
-     * nota para abrir el diálogo correspondiente
-     * @param al Observador de la pulsación del botón nueva nota
-     */
-    public void addNuevaNotaButtonListener(ActionListener al){
-        _principalF.addNuevaNotaButtonListener(al);
-    }
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón deshacer
-     * @param al Observador de la pulsación del botón deshacer
-     */
-    public void addUndoButtonListener(ActionListener al){
-        _principalF.addUndoButtonListener(al);
-    }
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón rehacer
-     * @param al Observador de la pulsación del botón rehacer
-     */
-    public void addRedoButtonListener(ActionListener al){
-        _principalF.addRedoButtonListener(al);
-    }
 
     /** Métodos de _critBusq **/
 

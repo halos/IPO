@@ -26,27 +26,6 @@ public interface VistaInterface {
      */
     public void mostrarGUI();
 
-    /** Métodos de _botSup **/
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón nueva
-     * nota
-     * @param al Observador de la pulsación del botón nueva nota
-     */
-    public void addNuevaNotaButtonListener(ActionListener al);
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón deshacer
-     * @param al Observador de la pulsación del botón deshacer
-     */
-    public void addUndoButtonListener(ActionListener al);
-
-    /**
-     * Método para añadir un nuevo observador de la pulsación del botón rehacer
-     * @param al Observador de la pulsación del botón rehacer
-     */
-    public void addRedoButtonListener(ActionListener al);
-
     /** Métodos de _critBusq **/
 
     /**
