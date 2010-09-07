@@ -3,6 +3,9 @@ package vista;
 
 import controlador.ControladorInterface;
 import controlador.ObservadorResultadoBusqueda;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.CamposNota;
 import modelo.ModeloInterface;
 import modelo.Nota;
@@ -62,6 +65,21 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
                 _controlador.nuevaNota();
             }
         });
+
+        _principalF.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                try {
+                    _modelo.guardar();
+                } catch (IOException ex) {
+                    Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                System.exit(0);
+            }
+        });
+
 
         //-------------------
 

@@ -1,2 +1,1 @@
-TODO: a la hora de cerrar la ventana principal el contenido debe guardarse. El modelo tiene un método para eso.
 TODO: al crear una nueva nota, el actionperformed de la vista debería invocar a la orden del controlador encargada
