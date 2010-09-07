@@ -293,7 +293,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
 
     // </editor-fold>
 
-    /**** NuevaNotaDialog ****/
+    /**** ObservadorResultadoBusqueda ****/
     //<editor-fold defaultstate="collapsed" desc="métodos">
 
     public void resultadoBusquedaCambiado() {
