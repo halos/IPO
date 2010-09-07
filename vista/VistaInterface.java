@@ -6,9 +6,6 @@
 package vista;
 
 import modelo.CamposNota;
-import modelo.Nota;
-import java.awt.event.*;
-import java.util.List;
 
 /**
  *
@@ -42,27 +39,6 @@ public interface VistaInterface {
      */
     public CamposNota getCamposNotaDetalles();
 
-    /**
-     * Método para añadir un observador al pulsado del botón de marcar como no
-     * leída
-     * @param al Observador del pulsado del botón de marcar como no leído
-     */
-    public void addMarcarNoLeidaButtonListener(ActionListener al);
-
-    /**
-     * Método para añadir un listener cuando la nota cambie
-     * @param al Listener que es notificado al cambiar la nota
-     */
-    public void addNotaCambiadaListener(ActionListener al);
-
-    /** Métodos de _resBusq **/
-
-    /**
-     * Método para refrescar los datos de la tabla
-     * @param datos Lista de notas con los datos actualizados
-     */
-    public void refrescarDatosResBusqueda(List<Nota> datos);
-
     //</editor-fold>
 
     /**** Nueva Nota ****/
@@ -78,13 +54,6 @@ public interface VistaInterface {
      * @return Objeto con los valores de los campos de la nueva nota
      */
     public CamposNota getCamposNotaNuevaNota();
-
-    /**
-     * Método para añadir un nuevo observador al pulsado del botón de añadir una
-     * nueva nota
-     * @param al Listener al que avisar al pulsar el botón de nueva nota
-     */
-    public void addNuevaNotaListener(ActionListener al);
 
     // </editor-fold>
 

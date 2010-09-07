@@ -10,7 +10,6 @@ import modelo.CamposNota;
 import modelo.ModeloInterface;
 import modelo.Nota;
 import java.awt.event.*;
-import java.util.List;
 
 /**
  * 
@@ -104,12 +103,22 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        _principalF.addMarcarNoLeidaButtonListener(new ActionListener() {
 
-        //-------------------
+            public void actionPerformed(ActionEvent e) {
+                _controlador.marcarNoLeida(_principalF.getSelectedNota());
+            }
+        });
 
-        mostrarGUI();
+        _principalF.addNotaCambiadaListener(new ActionListener() {
 
-        //-------------------
+            public void actionPerformed(ActionEvent e) {
+                
+                Nota n = _principalF.getSelectedNota();
+
+                _controlador.modificarNota(n);
+            }
+        });
 
     }
 
@@ -145,34 +154,6 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
      */
     public CamposNota getCamposNotaDetalles(){
         return _principalF.getCamposNota();
-    }
-
-    /**
-     * Método para añadir un observador al pulsado del botón de marcar como no
-     * leída
-     * @param al Observador del pulsado del botón de marcar como no leído
-     */
-    public void addMarcarNoLeidaButtonListener(ActionListener al){
-        _principalF.addMarcarNoLeidaButtonListener(al);
-    }
-
-    /**
-     * Método para añadir un listener cuando la nota vista en los detalles
-     * cambie
-     * @param al Listener que es notificado al cambiar la nota
-     */
-    public void addNotaCambiadaListener(ActionListener al){
-        _principalF.addNotaCambiadaListener(al);
-    }
-
-    /** Métodos de _resBusq **/
-
-    /**
-     * Método para refrescar los datos de la tabla
-     * @param datos Lista de notas con los datos actualizados
-     */
-    public void refrescarDatosResBusqueda(List<Nota> datos){
-        _principalF.refrescarDatosResBusqueda(datos);
     }
 
     //</editor-fold>
@@ -216,15 +197,6 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
 
     }
 
-    /**
-     * Método para añadir un nuevo observador al pulsado del botón de añadir una
-     * nueva nota
-     * @param al Listener al que avisar al pulsar el botón de nueva nota
-     */
-    public void addNuevaNotaListener(ActionListener al){
-        _nuevaNotaD.addNuevaNotaListener(al);
-    }
-
     // </editor-fold>
 
     /**** ObservadorResultadoBusqueda ****/
@@ -232,7 +204,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
 
     public void resultadoBusquedaCambiado() {
 
-        refrescarDatosResBusqueda(_controlador.getResBusqueda());
+        _principalF.refrescarDatosResBusqueda(_controlador.getResBusqueda());
     }
 
     //</editor-fold>
