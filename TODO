@@ -1,0 +1,4 @@
+TODO: la vista debe implementar el observadorresultadobusqueda del controlador, para saber cuándo repintar la tabla, más que nada.
+TODO: a la hora de cerrar la ventana principal el contenido debe guardarse. El modelo tiene un método para eso.
+TODO: los botones de deshacer y rehacer deberían estar inactivos al principio, y activarse sólo cuando haya algo que deshacer o rehacer
+TODO: al crear una nueva nota, el actionperformed de la vista debería invocar a la orden del controlador encargada

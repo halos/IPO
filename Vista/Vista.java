@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.ControladorInterface;
+import Controlador.ObservadorResultadoBusqueda;
 import Modelo.CamposNota;
 import Modelo.ModeloInterface;
 import Modelo.Nota;
@@ -12,7 +13,7 @@ import java.util.List;
  * 
  * @author Javier Rascón Mesa
  */
-public class Vista implements VistaInterface{
+public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
 
     /*---- Atributos ----*/
 
@@ -266,5 +267,16 @@ public class Vista implements VistaInterface{
     }
 
     // </editor-fold>
+
+    /**** NuevaNotaDialog ****/
+    //<editor-fold defaultstate="collapsed" desc="métodos">
+
+    public void resultadoBusquedaCambiado() {
+
+        refrescarDatosResBusqueda(_controlador.getResBusqueda());
+    }
+
+    //</editor-fold>
+    
 
 }
