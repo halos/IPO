@@ -56,6 +56,13 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        _nuevaNotaD.addNuevaNotaListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                _controlador.nuevaNota();
+            }
+        });
+
         //-------------------
 
         mostrarGUI();

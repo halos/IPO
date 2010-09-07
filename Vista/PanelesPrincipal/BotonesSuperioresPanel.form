@@ -35,6 +35,7 @@
           <Connection code="new ImageIcon(Icons.getIconUndo())" type="code"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Deshacer"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_"/>
@@ -46,6 +47,7 @@
           <Connection code="new ImageIcon(Icons.getIconRedo())" type="code"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Rehacer"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>

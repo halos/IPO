@@ -76,6 +76,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
 
         _undoButton.setIcon(new ImageIcon(Icons.getIconUndo()));
         _undoButton.setToolTipText("Deshacer");
+        _undoButton.setEnabled(false);
         _undoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 _(evt);
@@ -85,6 +86,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
 
         _redoButton.setIcon(new ImageIcon(Icons.getIconRedo()));
         _redoButton.setToolTipText("Rehacer");
+        _redoButton.setEnabled(false);
         add(_redoButton);
     }// </editor-fold>//GEN-END:initComponents
 
