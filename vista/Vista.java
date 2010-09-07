@@ -70,6 +70,40 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        _principalF.addCriteriosBusquedaCambiadosListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                _controlador.busquedaSolicitada();
+            }
+        });
+
+        _principalF.addClickTablaListener(new MouseListener() {
+
+            public void mouseClicked(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void mousePressed(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void mouseReleased(MouseEvent e) {
+                
+                Nota n = _principalF.getSelectedNota();
+                
+                _controlador.marcarLeida(n);
+                _principalF.setCamposNota(n.getCamposNota());
+            }
+
+            public void mouseEntered(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void mouseExited(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
+
 
         //-------------------
 
@@ -91,8 +125,6 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
         _principalF.setVisible(true);
     }
 
-    /** Métodos de _botSup **/
-
     /** Métodos de _critBusq **/
 
     /**
@@ -105,34 +137,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
 
     }
 
-    /**
-     * Método para añadir listeners que notifiquen el cambio de criterios de
-     * búsqueda
-     * @param al Listener que será notificado al cambiar algún criterio de
-     * buśqueda
-     */
-    public void addCriteriosBusquedaCambiadosListener(ActionListener al){
-        _principalF.addCriteriosBusquedaCambiadosListener(al);
-    }
-
     /** Métodos de _detNota **/
-
-    /**
-     * Método para ver el estado en que se encuentra el <tt>CheckBox</tt> que
-     * indica si una nota es editableCheckBox
-     * @return Estado de chequedo del <tt>CheckBox</tt> editableCheckBox
-     */
-    public boolean getEditableStatus(){
-        return _principalF.getEditableStatus();
-    }
-
-    /**
-     * Método para cambiar el estado de "editable" de los de talles de la nota
-     * @param editable Estado que se quiere establecer a los campos de la nota
-     */
-    public void setEditableDetallesNota(boolean editable){
-        _principalF.setEditableDetallesNota(editable);
-    }
 
     /**
      * Método para obtener los campos de la nota que se muestra en los detalles
@@ -142,14 +147,6 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
         return _principalF.getCamposNota();
     }
 
-     /**
-     * Método para establecer los los campos de la nota
-     * @param cn Campos para establecer en la nota que se muestra
-     */
-    public void setCamposNotaDetalles(CamposNota cn){
-        _principalF.setCamposNota(cn);
-    }
-
     /**
      * Método para añadir un observador al pulsado del botón de marcar como no
      * leída
@@ -157,16 +154,6 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
      */
     public void addMarcarNoLeidaButtonListener(ActionListener al){
         _principalF.addMarcarNoLeidaButtonListener(al);
-    }
-
-    /**
-     * Método para añadir un observador al cambio de estado del checkbox
-     * <tt>_editableCheckBox</tt>
-     * @param al Observador del cambio de estado del checkbox
-     * <tt>_editableCheckBox</tt>
-     */
-    public void addEditableStateChangedListener(ItemListener il){
-        _principalF.addEditableStateChangedListener(il);
     }
 
     /**
@@ -181,29 +168,11 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
     /** Métodos de _resBusq **/
 
     /**
-     * Método para obtener la nota de la fila seleccionada
-     * @return Nota de la fila seleccionada
-     */
-    public Nota getSelectedNota(){
-        return _principalF.getSelectedNota();
-    }
-
-    /**
      * Método para refrescar los datos de la tabla
      * @param datos Lista de notas con los datos actualizados
      */
     public void refrescarDatosResBusqueda(List<Nota> datos){
         _principalF.refrescarDatosResBusqueda(datos);
-    }
-
-    /**
-     * Método para añadir un observador que sea notificado de que se ha hecho
-     * click sobre la tabla
-     * @param ml obsevador que será notificado de que se ha hecho click sobre la
-     * tabla
-     */
-    public void addClickTablaListener(MouseListener ml){
-        _principalF.addClickTablaListener(ml);
     }
 
     //</editor-fold>

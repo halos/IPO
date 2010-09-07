@@ -33,6 +33,14 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
     public DetallesNotaPanel() {
         initComponents();
         _editable = false;
+
+        _editableCheckBox.addItemListener(new ItemListener() {
+
+            public void itemStateChanged(ItemEvent e) {
+
+                setEditableDetallesNota(!getEditableStatus());
+            }
+        });
     }
 
     /**
@@ -40,7 +48,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      * indica si una nota es editableCheckBox
      * @return Estado de chequedo del <tt>CheckBox</tt> editableCheckBox
      */
-    public boolean getEditableStatus(){
+    private boolean getEditableStatus(){
         return _editable;
     }
 
@@ -48,7 +56,7 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      * Método para cambiar el estado de "_editable" de los de talles de la nota
      * @param _editable Estado que se quiere establecer a los campos de la nota
      */
-    public void setEditableDetallesNota(boolean editable){
+    private void setEditableDetallesNota(boolean editable){
 
         _editable = editable;
 
@@ -116,16 +124,6 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      */
     public void addMarcarNoLeidaButtonListener(ActionListener al){
         _marcarNoLeidaButton.addActionListener(al);
-    }
-
-    /**
-     * Método para añadir un observador al cambio de estado del checkbox
-     * <tt>_editableCheckBox</tt>
-     * @param al Observador del cambio de estado del checkbox
-     * <tt>_editableCheckBox</tt>
-     */
-    public void addEditableStateChangedListener(ItemListener il){
-        _editableCheckBox.addItemListener(il);
     }
 
     /**

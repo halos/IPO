@@ -34,7 +34,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
         PilaDeshacer.registrarObservadorPilaDeshacer(new ObservadorPilaDeshacer() {
 
             public void pilaDeshacerCambiada() {
-                pilaDeshacerCambiada();
+                pilaDeshacerModificada();
             }
         });
 
@@ -65,7 +65,7 @@ public class BotonesSuperioresPanel extends javax.swing.JPanel {
     /**
      * Método que se ejecuta cuando la pila de deshacer se ha modificado
      */
-    private void pilaDeshacerCambiada(){
+    private void pilaDeshacerModificada(){
         _undoButton.setEnabled(PilaDeshacer.puedeDeshacer());
         _undoButton.setToolTipText(PilaDeshacer.nombreDeshacer());
 

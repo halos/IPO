@@ -82,23 +82,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
     /** Métodos de _detNota **/
     //<editor-fold defaultstate="collapsed" desc="métodos">
-    
-    /**
-     * Método para ver el estado en que se encuentra el <tt>CheckBox</tt> que
-     * indica si una nota es editableCheckBox
-     * @return Estado de chequedo del <tt>CheckBox</tt> editableCheckBox
-     */
-    public boolean getEditableStatus(){
-        return _detNota.getEditableStatus();
-    }
-
-    /**
-     * Método para cambiar el estado de "editable" de los de talles de la nota
-     * @param editable Estado que se quiere establecer a los campos de la nota
-     */
-    public void setEditableDetallesNota(boolean editable){
-        _detNota.setEditableDetallesNota(editable);
-    }
 
     /**
      * Método para obtener los campos de la nota
@@ -123,16 +106,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
      */
     public void addMarcarNoLeidaButtonListener(ActionListener al){
         _detNota.addMarcarNoLeidaButtonListener(al);
-    }
-
-    /**
-     * Método para añadir un observador al cambio de estado del checkbox
-     * <tt>_editableCheckBox</tt>
-     * @param al Observador del cambio de estado del checkbox
-     * <tt>_editableCheckBox</tt>
-     */
-    public void addEditableStateChangedListener(ItemListener il){
-        _detNota.addEditableStateChangedListener(il);
     }
 
     /**

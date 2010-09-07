@@ -34,28 +34,7 @@ public interface VistaInterface {
      */
     public CamposNota getCriteriosBusqueda();
 
-    /**
-     * Método para añadir listeners que notifiquen el cambio de criterios de
-     * búsqueda
-     * @param al Listener que será notificado al cambiar algún criterio de
-     * buśqueda
-     */
-    public void addCriteriosBusquedaCambiadosListener(ActionListener al);
-
     /** Métodos de _detNota **/
-
-    /**
-     * Método para ver el estado en que se encuentra el <tt>CheckBox</tt> que
-     * indica si una nota es editableCheckBox
-     * @return Estado de chequedo del <tt>CheckBox</tt> editableCheckBox
-     */
-    public boolean getEditableStatus();
-
-    /**
-     * Método para cambiar el estado de "editable" de los de talles de la nota
-     * @param editable Estado que se quiere establecer a los campos de la nota
-     */
-    public void setEditableDetallesNota(boolean editable);
 
     /**
      * Método para obtener los campos de la nota que se muestra en los detalles
@@ -63,26 +42,12 @@ public interface VistaInterface {
      */
     public CamposNota getCamposNotaDetalles();
 
-     /**
-     * Método para establecer los los campos de la nota
-     * @param cn Campos para establecer en la nota que se muestra
-     */
-    public void setCamposNotaDetalles(CamposNota cn);
-
     /**
      * Método para añadir un observador al pulsado del botón de marcar como no
      * leída
      * @param al Observador del pulsado del botón de marcar como no leído
      */
     public void addMarcarNoLeidaButtonListener(ActionListener al);
-
-    /**
-     * Método para añadir un observador al cambio de estado del checkbox
-     * <tt>_editableCheckBox</tt>
-     * @param al Observador del cambio de estado del checkbox
-     * <tt>_editableCheckBox</tt>
-     */
-    public void addEditableStateChangedListener(ItemListener il);
 
     /**
      * Método para añadir un listener cuando la nota cambie
@@ -93,24 +58,10 @@ public interface VistaInterface {
     /** Métodos de _resBusq **/
 
     /**
-     * Método para obtener la nota de la fila seleccionada
-     * @return Nota de la fila seleccionada
-     */
-    public Nota getSelectedNota();
-
-    /**
      * Método para refrescar los datos de la tabla
      * @param datos Lista de notas con los datos actualizados
      */
     public void refrescarDatosResBusqueda(List<Nota> datos);
-
-    /**
-     * Método para añadir un observador que sea notificado de que se ha hecho
-     * click sobre la tabla
-     * @param ml obsevador que será notificado de que se ha hecho click sobre la
-     * tabla
-     */
-    public void addClickTablaListener(MouseListener ml);
 
     //</editor-fold>
 
