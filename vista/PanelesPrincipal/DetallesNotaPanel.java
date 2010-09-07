@@ -147,18 +147,16 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
 //                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
-        _fechaDetallesFTF.addKeyListener(new KeyListener() {
 
-            public void keyTyped(KeyEvent e) {
+        //se añade al perder el foco para que se coja el texto formateado
+        _fechaDetallesFTF.addFocusListener(new FocusListener() {
+
+            public void focusGained(FocusEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void focusLost(FocusEvent e) {
                 al.actionPerformed(null);
-            }
-
-            public void keyPressed(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            public void keyReleased(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
         _textoTA.addKeyListener(new KeyListener() {

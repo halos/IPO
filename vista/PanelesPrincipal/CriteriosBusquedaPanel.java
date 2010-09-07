@@ -6,9 +6,11 @@
 
 package vista.PanelesPrincipal;
 
+import java.awt.event.FocusEvent;
 import modelo.CamposNota;
 import modelo.NombreCamposNota;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Calendar;
@@ -78,20 +80,19 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
 //                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
-        _fechaBusquedaFTF.addKeyListener(new KeyListener() {
 
-            public void keyTyped(KeyEvent e) {
+        //se añade al perder el foco para que se coja el texto formateado
+        _fechaBusquedaFTF.addFocusListener(new FocusListener() {
+
+            public void focusGained(FocusEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void focusLost(FocusEvent e) {
                 al.actionPerformed(null);
             }
-
-            public void keyPressed(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            public void keyReleased(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
-            }
         });
+
         _destinatarioBusquedaCB.addActionListener(al);
         _prioridadBusquedaCB.addActionListener(al);
 

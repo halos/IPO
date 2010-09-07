@@ -39,6 +39,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
 
         _principalF = new PrincipalFrame();
 
+        //mostrar el diálogo de la nueva nota
         _principalF.addNuevaNotaButtonListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -69,6 +70,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        //avisar de que los criterios de búsqueda han cambiado
         _principalF.addCriteriosBusquedaCambiadosListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -76,6 +78,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        //avisar de que se ha pulsado una nota en la tabla
         _principalF.addClickTablaListener(new MouseListener() {
 
             public void mouseClicked(MouseEvent e) {
@@ -103,6 +106,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        //avisar de que se ha pulsado el botón de marcar nota como no leida
         _principalF.addMarcarNoLeidaButtonListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -110,6 +114,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        //avisar de que se ha cambiado una nota
         _principalF.addNotaCambiadaListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
