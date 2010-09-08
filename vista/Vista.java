@@ -45,15 +45,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             public void actionPerformed(ActionEvent e) {
                 mostrarNuevaNotaDialog();
             }
-        });
-
-        //avisar al controlador de que se ha creado una nueva nota
-        _nuevaNotaD.addNuevaNotaListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                _controlador.nuevaNota();
-            }
-        });
+        }); 
 
         //para guardar los cambios el cerrar la ventana
         _principalF.addWindowListener(new WindowAdapter() {
@@ -187,6 +179,14 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
 
             public void actionPerformed(ActionEvent e) {
                 _nuevaNotaD.setVisible(false);
+            }
+        });
+
+        //avisar al controlador de que se ha creado una nueva nota
+        _nuevaNotaD.addNuevaNotaListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                _controlador.nuevaNota();
             }
         });
 
