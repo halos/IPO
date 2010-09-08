@@ -74,6 +74,21 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      */
     public CamposNota getCamposNota(){
 
+        _notaMostrada.modificarCampo(NombreCamposNota.DESTINATARIO,
+                _destinatarioDetallesCB.getSelectedItem());
+
+        _notaMostrada.modificarCampo(NombreCamposNota.PRIORIDAD,
+                _prioridadDetallesCB.getSelectedItem());
+
+        _notaMostrada.modificarCampo(NombreCamposNota.FECHA,
+                _fechaDetallesFTF.getText());
+
+        _notaMostrada.modificarCampo(NombreCamposNota.ASUNTO,
+                _asuntoTextField.getText());
+        
+        _notaMostrada.modificarCampo(NombreCamposNota.CUERPO,
+                _textoTA.getText());
+
         return _notaMostrada;
 
     }
@@ -131,20 +146,34 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
      * @param al Listener que es notificado al cambiar la nota
      */
     public void addNotaCambiadaListener(final ActionListener al){
-        _destinatarioDetallesCB.addActionListener(al);
-        _prioridadDetallesCB.addActionListener(al);
-        _asuntoTextField.addKeyListener(new KeyListener() {
+        _destinatarioDetallesCB.addFocusListener(new FocusListener() {
 
-            public void keyTyped(KeyEvent e) {
+            public void focusGained(FocusEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void focusLost(FocusEvent e) {
                 al.actionPerformed(null);
             }
+        });
+        _prioridadDetallesCB.addFocusListener(new FocusListener() {
 
-            public void keyPressed(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
+            public void focusGained(FocusEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
             }
 
-            public void keyReleased(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
+            public void focusLost(FocusEvent e) {
+                al.actionPerformed(null);
+            }
+        });
+        _asuntoTextField.addFocusListener(new FocusListener() {
+
+            public void focusGained(FocusEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void focusLost(FocusEvent e) {
+                al.actionPerformed(null);
             }
         });
 
@@ -159,18 +188,14 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
                 al.actionPerformed(null);
             }
         });
-        _textoTA.addKeyListener(new KeyListener() {
+        _textoTA.addFocusListener(new FocusListener() {
 
-            public void keyTyped(KeyEvent e) {
+            public void focusGained(FocusEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            public void focusLost(FocusEvent e) {
                 al.actionPerformed(null);
-            }
-
-            public void keyPressed(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            public void keyReleased(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }

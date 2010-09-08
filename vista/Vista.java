@@ -102,7 +102,7 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
         _principalF.addMarcarNoLeidaButtonListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                _controlador.marcarNoLeida(_principalF.getSelectedNota());
+                _controlador.marcarNoLeida(_principalF.getNotaDetalles());
             }
         });
 
@@ -111,8 +111,8 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
 
             public void actionPerformed(ActionEvent e) {
                 
-                Nota n = _principalF.getSelectedNota();
-
+                Nota n = _principalF.getNotaDetalles();
+                
                 _controlador.modificarNota(n);
             }
         });

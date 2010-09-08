@@ -236,4 +236,12 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private javax.swing.JPanel resBusqPanel;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Método para obtener la nota que hay en la zona de detalles
+     * @return Nota que se está mostrando en los detalles
+     */
+    Nota getNotaDetalles() {
+        return new Nota(_detNota.getCamposNota());
+    }
+
 }
