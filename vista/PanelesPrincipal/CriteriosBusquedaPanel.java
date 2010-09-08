@@ -7,10 +7,12 @@
 package vista.PanelesPrincipal;
 
 import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
 import modelo.CamposNota;
 import modelo.NombreCamposNota;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Calendar;
@@ -49,11 +51,22 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
 
         CamposNota criteriosCN = new CamposNota();
 
-        criteriosCN.añadirCampo(NombreCamposNota.DESTINATARIO, _destinatarioBusquedaCB.getSelectedItem());
-        criteriosCN.añadirCampo(NombreCamposNota.PRIORIDAD, _prioridadBusquedaCB.getSelectedItem());
-        criteriosCN.añadirCampo(NombreCamposNota.FECHA, _fechaBusquedaFTF.getText());
-        criteriosCN.añadirCampo(NombreCamposNota.ASUNTO, _textoBusquedaTF.getText());
-        criteriosCN.añadirCampo(NombreCamposNota.CUERPO, _textoBusquedaTF.getText());
+        if(_destinatarioCheckBox.isSelected())
+            criteriosCN.añadirCampo(NombreCamposNota.DESTINATARIO,
+                    _destinatarioBusquedaCB.getSelectedItem());
+
+        if(_prioridadCheckBox.isSelected())
+            criteriosCN.añadirCampo(NombreCamposNota.PRIORIDAD,
+                    _prioridadBusquedaCB.getSelectedItem());
+
+        if(_fechaCheckBox.isSelected())
+            criteriosCN.añadirCampo(NombreCamposNota.FECHA,
+                    _fechaBusquedaFTF.getText());
+
+        if(!_textoBusquedaTF.getText().equalsIgnoreCase("")){
+            criteriosCN.añadirCampo(NombreCamposNota.ASUNTO, _textoBusquedaTF.getText());
+            criteriosCN.añadirCampo(NombreCamposNota.CUERPO, _textoBusquedaTF.getText());
+        }
 
         return criteriosCN;
 
@@ -69,18 +82,24 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
         _textoBusquedaTF.addKeyListener(new KeyListener() {
 
             public void keyTyped(KeyEvent e) {
-                al.actionPerformed(null);
+                //al.actionPerformed(null);
             }
 
             public void keyPressed(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
+                //al.actionPerformed(null);
             }
 
             public void keyReleased(KeyEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet.");
+                al.actionPerformed(null);
             }
         });
 
+        _fechaCheckBox.addItemListener(new ItemListener() {
+
+            public void itemStateChanged(ItemEvent e) {
+                al.actionPerformed(null);
+            }
+        });
         //se añade al perder el foco para que se coja el texto formateado
         _fechaBusquedaFTF.addFocusListener(new FocusListener() {
 
@@ -93,10 +112,22 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
             }
         });
 
+        _destinatarioCheckBox.addItemListener(new ItemListener() {
+
+            public void itemStateChanged(ItemEvent e) {
+                al.actionPerformed(null);
+            }
+        });
         _destinatarioBusquedaCB.addActionListener(al);
+
+        _prioridadCheckBox.addItemListener(new ItemListener() {
+
+            public void itemStateChanged(ItemEvent e) {
+                al.actionPerformed(null);
+            }
+        });
         _prioridadBusquedaCB.addActionListener(al);
 
-        al.actionPerformed(null);
     }
 
     /** This method is called from within the constructor to
@@ -109,39 +140,28 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        _destinatarioLabel = new javax.swing.JLabel();
         _destinatarioBusquedaCB = new javax.swing.JComboBox();
-        _prioridadLabel = new javax.swing.JLabel();
         _prioridadBusquedaCB = new javax.swing.JComboBox();
         _textoLabel = new javax.swing.JLabel();
         _textoBusquedaTF = new javax.swing.JTextField();
-        _fechaLabel = new javax.swing.JLabel();
         _fechaBusquedaFTF = new javax.swing.JFormattedTextField();
+        _destinatarioCheckBox = new javax.swing.JCheckBox();
+        _prioridadCheckBox = new javax.swing.JCheckBox();
+        _fechaCheckBox = new javax.swing.JCheckBox();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Criterios de búsqueda"));
         setLayout(new java.awt.GridBagLayout());
 
-        _destinatarioLabel.setText("Destinatario"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-        add(_destinatarioLabel, gridBagConstraints);
-
         _destinatarioBusquedaCB.setModel(new javax.swing.DefaultComboBoxModel(modelo.Destinatario.values()));
+        _destinatarioBusquedaCB.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         add(_destinatarioBusquedaCB, gridBagConstraints);
 
-        _prioridadLabel.setText("Prioridad"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-        add(_prioridadLabel, gridBagConstraints);
-
         _prioridadBusquedaCB.setModel(new javax.swing.DefaultComboBoxModel(modelo.Prioridades.values()));
+        _prioridadBusquedaCB.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -162,15 +182,9 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         add(_textoBusquedaTF, gridBagConstraints);
 
-        _fechaLabel.setText("Fecha"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-        add(_fechaLabel, gridBagConstraints);
-
         _fechaBusquedaFTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         _fechaBusquedaFTF.setText(c.get(Calendar.DAY_OF_MONTH)+"/"+c.get(Calendar.MONTH)+"/"+c.get(Calendar.YEAR));
+        _fechaBusquedaFTF.setEnabled(false);
         _fechaBusquedaFTF.setPreferredSize(new java.awt.Dimension(90, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -178,16 +192,66 @@ public class CriteriosBusquedaPanel extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         add(_fechaBusquedaFTF, gridBagConstraints);
+
+        _destinatarioCheckBox.setText("Destinatario");
+        _destinatarioCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                _destStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        add(_destinatarioCheckBox, gridBagConstraints);
+
+        _prioridadCheckBox.setText("Prioridad");
+        _prioridadCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                _prioridadStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        add(_prioridadCheckBox, gridBagConstraints);
+
+        _fechaCheckBox.setText("Fecha");
+        _fechaCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                _fechaStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        add(_fechaCheckBox, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void _destStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event__destStateChanged
+        _destinatarioBusquedaCB.setEnabled(_destinatarioCheckBox.isSelected());
+    }//GEN-LAST:event__destStateChanged
+
+    private void _prioridadStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event__prioridadStateChanged
+        _prioridadBusquedaCB.setEnabled(_prioridadCheckBox.isSelected());
+    }//GEN-LAST:event__prioridadStateChanged
+
+    private void _fechaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event__fechaStateChanged
+        _fechaBusquedaFTF.setEnabled(_fechaCheckBox.isSelected());
+    }//GEN-LAST:event__fechaStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox _destinatarioBusquedaCB;
-    private javax.swing.JLabel _destinatarioLabel;
+    private javax.swing.JCheckBox _destinatarioCheckBox;
     private javax.swing.JFormattedTextField _fechaBusquedaFTF;
-    private javax.swing.JLabel _fechaLabel;
+    private javax.swing.JCheckBox _fechaCheckBox;
     private javax.swing.JComboBox _prioridadBusquedaCB;
-    private javax.swing.JLabel _prioridadLabel;
+    private javax.swing.JCheckBox _prioridadCheckBox;
     private javax.swing.JTextField _textoBusquedaTF;
     private javax.swing.JLabel _textoLabel;
     // End of variables declaration//GEN-END:variables

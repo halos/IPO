@@ -9,6 +9,9 @@ package vista;
 
 import modelo.CamposNota;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import modelo.NombreCamposNota;
 
 /**
  * clase que se encarga de generar y gestionar el diálogo para crear una nueva
@@ -19,6 +22,8 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
 
     /*---- Atributos ----*/
 
+    Calendar c;
+
     /*---- Métodos ----*/
 
     /**
@@ -26,6 +31,7 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
      */
     public NuevaNotaDialog() {
         initComponents();
+        c = new GregorianCalendar();
     }
 
     /**
@@ -35,6 +41,22 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
     public CamposNota getCamposNota(){
 
         CamposNota cn = new CamposNota();
+
+        String fecha;
+
+        fecha = c.get(Calendar.DAY_OF_MONTH)+"/";
+        fecha += c.get(Calendar.MONTH)+"/";
+        fecha += c.get(Calendar.YEAR);
+
+        cn.añadirCampo(NombreCamposNota.FECHA, fecha);
+        cn.añadirCampo(NombreCamposNota.ASUNTO, _asuntoTF.getText());
+        cn.añadirCampo(NombreCamposNota.CUERPO, _textoNotaTA.getText());
+        cn.añadirCampo(NombreCamposNota.DESTINATARIO,
+                _destinatarioCB.getSelectedItem());
+        cn.añadirCampo(NombreCamposNota.PRIORIDAD,
+                _prioridadCB.getSelectedItem());
+
+        cn.añadirCampo(NombreCamposNota.LEIDA, false);
 
         return cn;
 

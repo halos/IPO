@@ -117,6 +117,8 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
+        _controlador.registrarObservadorResultadoBusqueda(this);
+
     }
 
     /**** PrincipalFrame ****/
@@ -175,17 +177,11 @@ public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
             }
         });
 
-        _nuevaNotaD.addNuevaNotaListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                _nuevaNotaD.setVisible(false);
-            }
-        });
-
         //avisar al controlador de que se ha creado una nueva nota
         _nuevaNotaD.addNuevaNotaListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
+                _nuevaNotaD.setVisible(false);
                 _controlador.nuevaNota();
             }
         });

@@ -91,28 +91,53 @@ public class CamposNota implements Serializable {
     public boolean coincide (CamposNota criterios){
         boolean flag=true;
 
-        for (NombreCamposNota n:getKeys()){
-            if (criterios.getValueOf(n.PRIORIDAD)==this.getValueOf(n.PRIORIDAD)){
-                flag=false;
-            }
+        if(criterios.getKeys().size()==0){
+            return true;
+        }
 
-            if (criterios.getValueOf(n.ASUNTO).toString().toLowerCase().contains(this.getValueOf(n.ASUNTO).toString().toLowerCase())){
-                flag=true;
-            }
-            else{
-                if (criterios.getValueOf(n.CUERPO).toString().toLowerCase().contains(this.getValueOf(n.CUERPO).toString().toLowerCase())){
+        for (NombreCamposNota n:getKeys()){
+            
+            if (criterios.mapa.containsKey(n.PRIORIDAD))
+                    if(criterios.getValueOf(n.PRIORIDAD)==this.getValueOf(n.PRIORIDAD)){
+                        flag=true;
+                    }
+                    else{
+                        return false;
+                    }
+
+            if (criterios.mapa.containsKey(n.DESTINATARIO))
+                    if(criterios.getValueOf(n.DESTINATARIO)==this.getValueOf(n.DESTINATARIO)){
+                        flag=true;
+                    }
+                    else{
+                        return false;
+                    }
+
+            if (criterios.mapa.containsKey(n.ASUNTO))
+                if(this.getValueOf(n.ASUNTO).toString().toLowerCase().contains(
+                    criterios.getValueOf(n.ASUNTO).toString().toLowerCase())){
+                        flag=true;
+                    }
+                    else{
+                        if(this.getValueOf(n.CUERPO).toString().toLowerCase().contains(
+                            criterios.getValueOf(n.CUERPO).toString().toLowerCase())){
+                            flag = true;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+
+            if (criterios.mapa.containsKey(n.FECHA))
+                if(criterios.getValueOf(n.FECHA).toString().toLowerCase().contains(
+                    this.getValueOf(n.FECHA).toString().toLowerCase())){
                     flag = true;
                 }
                 else{
-                    flag=false;
+                    return false;
                 }
-            }
+            
         }
-
-        if(criterios.getKeys().size()==0){
-            flag=true;
-        }
-
 
         return flag;
     }

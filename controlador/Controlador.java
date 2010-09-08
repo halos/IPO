@@ -6,6 +6,7 @@ package controlador;
 
 import controlador.undo.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import modelo.CamposNota;
 import modelo.ModeloInterface;
@@ -35,7 +36,7 @@ public class Controlador implements ControladorInterface {
      * Lista de notas, que son el resultado de la busqueda con los criterios actuales.
      *
      */
-    private List<Nota> resBusqueda;
+    private List<Nota> resBusqueda = new LinkedList<Nota>();
 
     /*
      * Lista de observadores del controlador.

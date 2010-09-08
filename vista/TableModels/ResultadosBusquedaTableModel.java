@@ -157,7 +157,7 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
             //para todos los campos de la nota
             for (NombreCamposNota m: c.getKeys()){
                 //buscar su columna
-                for (int columna = 0; columna < _nombreColumnas.length; columna++) {
+                for (int columna = 0; columna < getColumnCount(); columna++) {
                     if(getColumnName(columna).equals(m.toString())){
                         texto = c.getValueOf(m).toString();
 
@@ -171,7 +171,7 @@ public class ResultadosBusquedaTableModel extends AbstractTableModel{
 
             }
 
-            fila++;
+            _datosTabla[fila++][getColumnCount()] = n;
             
         }
         
