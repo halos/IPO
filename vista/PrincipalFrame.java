@@ -14,8 +14,8 @@ import java.awt.event.*;
 import java.util.List;
 
 /**
- *
- * @author halos
+ * Clase que genera y gestiona la ventana principal de la aplicación
+ * @author Javier Rascón Mesa
  */
 public class PrincipalFrame extends javax.swing.JFrame {
 

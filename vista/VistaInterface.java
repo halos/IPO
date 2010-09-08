@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * VistaInterface.jaca
  */
 
 package vista;
@@ -8,12 +7,12 @@ package vista;
 import modelo.CamposNota;
 
 /**
- *
+ * Estrategia para la definicion de la vista de la aplicacion.
  * @author Javier Rascón Mesa
  */
 public interface VistaInterface {
 
-    /* Metodos */
+    /*---- Metodos ----*/
 
      /**** Principal ****/
     //<editor-fold defaultstate="collapsed" desc="métodos">

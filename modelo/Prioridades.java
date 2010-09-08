@@ -6,43 +6,40 @@
 package modelo;
 
 /**
- *
+ * Tipos de prioridades
  * @author Javier Rascón Mesa
  */
 public enum Prioridades {
 
-    NORMAL("Normal",1),
+    NORMAL("Normal"),
     
-    URGENTE("Urgente",5)
+    URGENTE("Urgente")
     
     ;
 
-    /* Atributos */
+    /*---- Atributos ----*/
 
     /**
      * Nombre que verá el usuario del nivel de proridad
      */
     String nombre;
 
-    /*/
-     * Valor de prioridad de una nota
-     * Cuanto más alto más prioridad tiene la nota
+    /*---- Métodos ----*/
+
+    /**
+     * Constructor
+     * @param nombre Nombre de la prioridad
      */
-    int valor;
-
-    /* Métodos */
-
-    private Prioridades(String nombre, int valor) {
+    private Prioridades(String nombre) {
         this.nombre = nombre;
-        this.valor = valor;
     }
 
+    /**
+     * Método para obtener el nombre de la prioridad
+     * @return Nombre de la prioridad
+     */
     public String getNombre() {
         return this.nombre;
-    }
-
-    public int getValor() {
-        return valor;
     }
 
     @Override

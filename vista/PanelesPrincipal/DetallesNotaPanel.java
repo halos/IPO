@@ -21,8 +21,14 @@ public class DetallesNotaPanel extends javax.swing.JPanel {
 
     /*---- Atributos ----*/
 
+    /**
+     * Campos de la nota que son mostrados
+     */
     CamposNota _notaMostrada;
 
+    /**
+     * Estado de editabilidad de los campos de la nota
+     */
     Boolean _editable;
 
     /*---- Métodos ----*/

@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * Almacena un grupo de campos de nota y sus valores
- * @author Andres Jesus Ibañez Exposito
+ * @author Andres Jesus Ibañez Exposito Y Javier Rascón Mesa
  */
 public class CamposNota implements Serializable {
 

@@ -22,6 +22,9 @@ public class NuevaNotaDialog extends javax.swing.JDialog {
 
     /*---- Atributos ----*/
 
+    /**
+     * Calendario para poder tomar la fecha actual
+     */
     Calendar c;
 
     /*---- Métodos ----*/

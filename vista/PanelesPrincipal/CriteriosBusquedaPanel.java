@@ -25,14 +25,14 @@ import java.util.GregorianCalendar;
  */
 public class CriteriosBusquedaPanel extends javax.swing.JPanel {
 
-    /* Atributos */
+    /*---- Atributos ----*/
 
     /**
      * Calendario para poder obtener el día actual de la semana
      */
     Calendar c;
 
-    /* Métodos */
+    /*---- Métodos ----*/
 
     /**
      * Constructor

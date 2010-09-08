@@ -7,7 +7,7 @@ package modelo;
 
 /**
  *
- * @author halos
+ * @author Javier Rascón Mesa
  */
 public enum Destinastarios {
 
@@ -17,6 +17,9 @@ public enum Destinastarios {
 
     /* Atributos */
 
+    /**
+     * Nombre del destinatario
+     */
     String nombre;
 
     /* Métodos */

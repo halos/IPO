@@ -1,3 +1,6 @@
+/**
+ * Vista.java
+ */
 
 package vista;
 
@@ -12,17 +15,31 @@ import modelo.Nota;
 import java.awt.event.*;
 
 /**
- * 
+ * Implementacion concreta de la estrategia <tt>VistaInterface</tt>.
  * @author Javier Rascón Mesa
  */
 public class Vista implements VistaInterface, ObservadorResultadoBusqueda{
 
     /*---- Atributos ----*/
 
+    /**
+     * Modelo de la aplicacion. Sobre este modelo trabaja el controlador.
+     */
     ModeloInterface _modelo;
+
+    /**
+     * Vista de la aplicacion. Sobre esta vista trabaja el controlador.
+     */
     ControladorInterface _controlador;
 
+    /**
+     * Ventana principal de la aplicación
+     */
     PrincipalFrame _principalF;
+
+    /**
+     * Diálogo de la nueva nota
+     */
     NuevaNotaDialog _nuevaNotaD;
 
     /*---- Métodos ----*/
