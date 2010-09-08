@@ -25,6 +25,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private CriteriosBusquedaPanel _critBusq;
     private DetallesNotaPanel _detNota;
     private ResultadosBusquedaPanel _resBusq;
+    private Nota _selectedNota;
 
     /*---- Métodos ----*/
 
@@ -126,7 +127,15 @@ public class PrincipalFrame extends javax.swing.JFrame {
      * @return Nota de la fila seleccionada
      */
     public Nota getSelectedNota(){
-        return _resBusq.getSelectedNota();
+
+        try{
+            _selectedNota = _resBusq.getSelectedNota();
+
+            return _resBusq.getSelectedNota();
+
+        }catch(ArrayIndexOutOfBoundsException e){
+            return getNotaDetalles();
+        }
     }
 
     /**
@@ -216,18 +225,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PrincipalFrame().setVisible(true);
-
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel botSupPanel;
@@ -241,7 +238,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
      * @return Nota que se está mostrando en los detalles
      */
     Nota getNotaDetalles() {
-        return new Nota(_detNota.getCamposNota());
+        _selectedNota.modificarNota(_detNota.getCamposNota());
+
+        return _selectedNota;
     }
 
 }
